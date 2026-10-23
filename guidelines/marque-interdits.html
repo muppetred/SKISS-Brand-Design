@@ -1,0 +1,49 @@
+<!-- @dsCard group="Marque" viewport="700x400" name="Interdits du logo" subtitle="Le vrai fichier, barré : jamais de logo redessiné" -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--white); color: var(--ink); font-family: var(--font-sans); font-size: 11.5px; line-height: 1.3; }
+  .card { width: 700px; padding: 16px 24px 18px; }
+  .head { font-size: 12px; margin-bottom: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px 12px; }
+  .vis { position: relative; height: 104px; border-radius: 10px; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 0 1px var(--ink-o14); }
+  .vis .bar { position: absolute; left: -10%; right: -10%; top: 50%; border-top: 3px solid var(--orange-burnt); transform: rotate(-30deg); }
+  .sig { display: flex; align-items: center; gap: 3.9px; }
+  .sig .sp { height: 26.9px; } .sig .wm { height: 22px; }
+  .m { background: var(--orange); -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+  .m.sp { width: 25.7px; height: 26.9px; -webkit-mask-image: url(../assets/logos/spiral-black.png); mask-image: url(../assets/logos/spiral-black.png); }
+  .m.wm { width: 80.3px; height: 22px; -webkit-mask-image: url(../assets/logos/wordmark-black.png); mask-image: url(../assets/logos/wordmark-black.png); }
+  .busy { background: repeating-linear-gradient(60deg, var(--peach) 0 9px, var(--cream) 9px 15px, var(--orange-light) 15px 22px, var(--white) 22px 27px); }
+  .cap { margin-top: 6px; font-size: 11px; }
+  .cap b { display: block; font-size: 11.5px; }
+  .ment { flex-direction: column; gap: 4px; padding: 10px; text-align: center; font-size: 11px; background: var(--cream); box-shadow: none; }
+  .ment b { font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="head">Le logo s’utilise tel quel, depuis les fichiers&nbsp;: noir ou blanc, rien d’autre. Chaque exemple ci-dessous part du vrai fichier.</div>
+  <div class="grid">
+    <div><div class="vis"><div class="sig"><div class="m sp"></div><div class="m wm"></div></div><div class="bar"></div></div>
+      <div class="cap"><b>Recolorer</b>Ni orange ni aucune autre couleur.</div></div>
+    <div><div class="vis"><div class="sig" style="transform:scale(1.3,0.75)"><img class="sp" src="../assets/logos/spiral-black.png" alt=""><img class="wm" src="../assets/logos/wordmark-black.png" alt="SKISS"></div><div class="bar"></div></div>
+      <div class="cap"><b>Déformer</b>Ni étirer ni écraser.</div></div>
+    <div><div class="vis"><div class="sig" style="transform:rotate(-18deg)"><img class="sp" src="../assets/logos/spiral-black.png" alt=""><img class="wm" src="../assets/logos/wordmark-black.png" alt="SKISS"></div><div class="bar"></div></div>
+      <div class="cap"><b>Pivoter</b>Toujours à l’horizontale.</div></div>
+    <div><div class="vis"><div class="sig" style="filter:drop-shadow(1.5px 0 0 var(--orange)) drop-shadow(-1.5px 0 0 var(--orange)) drop-shadow(0 1.5px 0 var(--orange)) drop-shadow(0 -1.5px 0 var(--orange))"><img class="sp" src="../assets/logos/spiral-black.png" alt=""><img class="wm" src="../assets/logos/wordmark-black.png" alt="SKISS"></div><div class="bar"></div></div>
+      <div class="cap"><b>Ajouter un contour</b>Aucun contour, aucun liseré.</div></div>
+    <div><div class="vis"><div class="sig" style="filter:drop-shadow(4px 5px 3px var(--veil-ink-45))"><img class="sp" src="../assets/logos/spiral-black.png" alt=""><img class="wm" src="../assets/logos/wordmark-black.png" alt="SKISS"></div><div class="bar"></div></div>
+      <div class="cap"><b>Ajouter une ombre ou un effet</b>Ni ombre, ni lueur, ni dégradé.</div></div>
+    <div><div class="vis busy"><div class="sig"><img class="sp" src="../assets/logos/spiral-white.png" alt=""><img class="wm" src="../assets/logos/wordmark-white.png" alt="SKISS"></div><div class="bar" style="border-color:var(--ink)"></div></div>
+      <div class="cap"><b>Poser sur une zone chargée</b>Sans voile #12100C (45&nbsp;% au moins).</div></div>
+    <div><div class="vis" style="background:var(--dark-900);box-shadow:none"><div class="sig"><img class="sp" src="../assets/logos/spiral-black.png" alt=""><img class="wm" src="../assets/logos/wordmark-black.png" alt="SKISS"></div><div class="bar" style="border-color:var(--peach)"></div></div>
+      <div class="cap"><b>Inverser les tons</b>Noir sur fond sombre&nbsp;: 1,11:1.</div></div>
+    <div><div class="vis ment"><b>Texte à la place du logo</b>Le wordmark ne s’écrit dans aucune police, ni Khand ni Montserrat&nbsp;: il vient du fichier PNG.</div>
+      <div class="cap"><b>Retaper le wordmark</b>Mention seulement&nbsp;: aucun faux logo dessiné ici.</div></div>
+  </div>
+</div>
+</body>
+</html>

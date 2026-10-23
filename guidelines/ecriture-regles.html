@@ -1,0 +1,34 @@
+<!-- @dsCard group="Écriture" viewport="700x500" name="Règles non négociables" subtitle="Ponctuation française, chiffres, noms et montants" -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--white); color: var(--ink); font-family: var(--font-sans); font-size: 11.5px; line-height: 1.3; }
+  .card { width: 700px; padding: 16px 24px 18px; }
+  .r { display: grid; grid-template-columns: 1fr 150px 128px; gap: 14px; padding: 6px 0; border-top: 1px solid var(--ink-o14); align-items: center; }
+  .r.h { border-top: 0; padding-top: 0; font-weight: var(--fw-bold); font-size: 10px; letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--orange-burnt); }
+  .rule b { display: block; font-size: 12px; }
+  .rule span { color: var(--ink-o72); font-size: 11px; }
+  .yes { font-weight: var(--fw-bold); }
+  .yes::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--ink); margin-right: 6px; vertical-align: 1px; }
+  .no { color: var(--ink-o72); text-decoration: line-through; text-decoration-color: var(--orange-burnt); text-decoration-thickness: 2px; }
+  .nn { color: var(--ink-o72); }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="r h"><span>Règle</span><span>Oui</span><span>Non</span></div>
+  <div class="r"><div class="rule"><b>Aucun tiret long ni moyen dans un texte visible</b><span>Deux-points, virgule ou parenthèses. Fourchettes avec «&#8239;à&#8239;».</span></div><div class="yes">90 à 180&nbsp;€</div><div class="nn">un tiret entre deux montants</div></div>
+  <div class="r"><div class="rule"><b>Espaces insécables</b><span>Fine avant le point-virgule, les points d’interrogation et d’exclamation, et dans les guillemets. Normale avant les deux-points, le signe pour cent, l’euro, et entre les milliers.</span></div><div class="yes">On en parle&#8239;?<br>1&nbsp;400&nbsp;€</div><div class="no">2880€</div></div>
+  <div class="r"><div class="rule"><b>Accents sur les capitales</b><span>Khand les affiche bien.</span></div><div class="yes">STRATÉGIE</div><div class="no">VISIBILITE</div></div>
+  <div class="r"><div class="rule"><b>Pas de majuscule à l’anglaise</b><span>En début de phrase et aux noms propres seulement.</span></div><div class="yes">Nos services</div><div class="no">Nos Services</div></div>
+  <div class="r"><div class="rule"><b>«&#8239;SKISS&#8239;» toujours en capitales</b><span>Aucun emoji, nulle part.</span></div><div class="yes">SKISS</div><div class="no">Skiss</div></div>
+  <div class="r"><div class="rule"><b>Pas de troisième personne quand un fondateur se présente</b><span>Registre nominal ou «&#8239;on&#8239;».</span></div><div class="yes">On pilote dans la durée</div><div class="no">Martin pilote…</div></div>
+  <div class="r"><div class="rule"><b>Montants HTVA, budget média à part</b><span>Le budget média est toujours distinct des honoraires.</span></div><div class="yes">Dès 450&nbsp;€ / mois</div><div class="nn">un budget média inclus dans le prix</div></div>
+  <div class="r"><div class="rule"><b>Aucun texte inventé présenté comme réel</b><span>Ni client, ni chiffre, ni témoignage, ni citation&nbsp;: intitulé neutre entre crochets.</span></div><div class="yes">[Nom du client]</div><div class="nn">un témoignage imaginé</div></div>
+  <div class="r"><div class="rule"><b>Téléphone sur une seule ligne</b><span>Aucun retour à la ligne dans un numéro.</span></div><div class="yes" style="white-space:nowrap">+32&nbsp;499&nbsp;05&nbsp;66&nbsp;43</div><div class="nn">un numéro coupé</div></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!-- @dsCard group="Réseaux sociaux" viewport="1280x720" name="Kit Instagram" subtitle="Couverture de carrousel, page intérieure, citation et couverture de reel" -->
+<!-- @startingPoint section="Réseaux sociaux" subtitle="Les quatre formats Instagram SKISS, réduits côte à côte" viewport="1280x720" -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SKISS · Kit Instagram</title>
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  html, body, #root { height: 100%; }
+  body { margin: 0; overflow: hidden; background: var(--cream); color: var(--ink); font-family: var(--font-sans); }
+  .board { box-sizing: border-box; height: 100%; display: flex; flex-direction: column; justify-content: center;
+    gap: 28px; padding: 32px 36px; }
+  .head { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; }
+  .head h1 { margin: 6px 0 0; font-family: var(--font-display); font-weight: var(--fw-bold); font-size: 44px;
+    line-height: var(--leading-tight); }
+  .head p.note { margin: 0; max-width: 430px; font-size: var(--text-small); line-height: 1.45; color: var(--ink-o72); text-align: right; }
+  .row { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; }
+  .tile { display: flex; flex-direction: column; gap: 10px; }
+  .frame { border-radius: 10px; overflow: hidden; box-shadow: 0 0 0 1px var(--ink-o14); background: var(--white); }
+  .label { margin: 0; font-size: var(--text-small); line-height: 1.35; }
+  .label b { display: block; }
+  .label span { color: var(--ink-o72); }
+</style>
+</head>
+<body class="theme-cream">
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script>
+  // Le nom exact de l’espace de noms est fixé par Claude Design à la compilation : on le cherche une seule fois ici.
+  window.SKDS = window[Object.keys(window).find(function (k) { return /DesignSystem_/.test(k); })];
+</script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" data-presets="react" src="SocialPostCover.jsx"></script>
+<script type="text/babel" data-presets="react" src="SocialPostInside.jsx"></script>
+<script type="text/babel" data-presets="react" src="SocialPostQuote.jsx"></script>
+<script type="text/babel" data-presets="react" src="SocialReelCover.jsx"></script>
+<script type="text/babel" data-presets="react">
+  // Les quatre écrans à la même hauteur d’affichage : 384 px.
+  function SocialBoard() {
+    const { Eyebrow } = window.SKDS;
+    const H = 384;
+    const tiles = [
+      { el: <SocialPostCover scale={H / 1350} />, name: "Couverture de carrousel", size: "1080 x 1350, dégradé social" },
+      { el: <SocialPostInside scale={H / 1350} />, name: "Page intérieure", size: "1080 x 1350, fond blanc" },
+      { el: <SocialPostQuote scale={H / 1350} />, name: "Citation", size: "1080 x 1350, aplat brûlé" },
+      { el: <SocialReelCover scale={H / 1920} />, name: "Couverture de reel", size: "1080 x 1920, photo voilée" },
+    ];
+    return (
+      <main className="board">
+        <header className="head">
+          <div>
+            <Eyebrow>Réseaux sociaux</Eyebrow>
+            <h1>Instagram{"\u00A0"}: posts et reel</h1>
+          </div>
+          <p className="note">Texte en encre sur le dégradé social et les fonds clairs{"\u202F"}; blanc seulement sur l’aplat brûlé ou la photo voilée. Signature en bas à droite, logo complet sur le reel.</p>
+        </header>
+        <div className="row">
+          {tiles.map((t) => (
+            <figure key={t.name} className="tile" style={{ margin: 0 }}>
+              <div className="frame">{t.el}</div>
+              <figcaption className="label"><b>{t.name}</b><span>{t.size}</span></figcaption>
+            </figure>
+          ))}
+        </div>
+      </main>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById("root")).render(<SocialBoard />);
+</script>
+</body>
+</html>

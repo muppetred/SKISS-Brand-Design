@@ -1,0 +1,40 @@
+/* SKISS : espacements, grilles, mouvement. */
+:root {
+  /* Échelle web sur 8 px (proposition) */
+  --space-1: 0.25rem;  /* 4 */
+  --space-2: 0.5rem;   /* 8 */
+  --space-3: 0.75rem;  /* 12 */
+  --space-4: 1rem;     /* 16 */
+  --space-5: 1.5rem;   /* 24 */
+  --space-6: 2rem;     /* 32 */
+  --space-7: 3rem;     /* 48 */
+  --space-8: 4rem;     /* 64 */
+  --space-9: 6rem;     /* 96 */
+  --space-10: 8rem;    /* 128 */
+
+  --container-max: 80rem;
+  --container-pad: clamp(1.25rem, 0.5rem + 3.75vw, 3rem);
+  --section: clamp(4rem, 3rem + 5vw, 8rem);
+
+  /* Grille des slides 1920 x 1080 (mesurée dans le deck) */
+  --slide-w: 1920px;
+  --slide-h: 1080px;
+  --slide-margin-x: 100px;     /* 5,2 % de la largeur */
+  --slide-top: 104px;          /* haut des blocs sans titre */
+  --slide-top-titled: 228px;   /* haut des blocs sous un titre */
+  --slide-signature-w: 225px;  /* signature spirale + wordmark */
+  --slide-signature-inset: 48px;
+
+  /* Posts 1080 x 1350 (mesuré sur canva-wilmeyer-01) */
+  --post-margin-x: 108px;
+  --post-margin-bottom: 110px;
+
+  /* A4 : marges de 15 mm */
+  --a4-margin: 15mm;
+
+  /* Mouvement (site) */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 0.18s;
+  --duration-reveal: 0.7s;
+  --reveal-distance: 30px;
+}

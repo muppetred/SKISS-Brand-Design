@@ -1,0 +1,34 @@
+<!-- @dsCard group="Marque" viewport="700x385" name="Quelle version, à quelle taille" subtitle="Usages du logo et tailles minimales à l’écran" -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--white); color: var(--ink); font-family: var(--font-sans); font-size: 11.5px; line-height: 1.35; }
+  .card { width: 700px; padding: 16px 24px 18px; }
+  .r { display: grid; grid-template-columns: 1.35fr 1fr 1fr; gap: 14px; padding: 7px 0; border-top: 1px solid var(--ink-o14); align-items: baseline; }
+  .r.h { border-top: 0; padding-top: 0; font-weight: var(--fw-bold); font-size: 10px; letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--orange-burnt); }
+  .v { font-weight: var(--fw-bold); }
+  .s { font-weight: var(--fw-bold); color: var(--orange-burnt); }
+  .why { margin-top: 10px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .box { background: var(--cream); border-radius: 12px; padding: 10px 12px; font-size: 11px; }
+  .box b { display: block; font-size: 11.5px; margin-bottom: 2px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="r h"><span>Usage</span><span>Version</span><span>Taille à l’écran</span></div>
+  <div class="r"><span>Couverture, post de marque, reel, planche</span><span class="v">Logo complet vertical</span><span class="s">230&nbsp;px de large au moins</span></div>
+  <div class="r"><span>En-tête de document, one-pager</span><span class="v">Logo complet horizontal</span><span class="s">325&nbsp;px de large au moins</span></div>
+  <div class="r"><span>Signature de page, signature e-mail, en-tête trop petit</span><span class="v">Spirale + wordmark</span><span class="s">wordmark de 16&nbsp;px de haut au moins</span></div>
+  <div class="r"><span>Barre de navigation du site</span><span class="v">Spirale + wordmark</span><span class="s">spirale 36&nbsp;px, wordmark 20&nbsp;px</span></div>
+  <div class="r"><span>Pictogramme, filigrane</span><span class="v">Ampoule seule (SVG)</span><span class="s">155&nbsp;px de haut au moins</span></div>
+  <div class="r"><span>Favicon, avatar, motif graphique</span><span class="v">Spirale seule (PNG)</span><span class="s">350&nbsp;px au plus</span></div>
+  <div class="why">
+    <div class="box"><b>Pourquoi 155&nbsp;px</b>Le filet qui dessine le contour de l’ampoule fait environ 0,65&nbsp;% de sa hauteur (13&nbsp;px sur 2&nbsp;000&nbsp;px)&nbsp;: sous 155&nbsp;px, il passe sous 1&nbsp;px. En dessous des minimums (en-tête A4 à l’écran, signature e-mail, favicon), on passe à la spirale + wordmark ou à la spirale seule.</div>
+    <div class="box"><b>Pas de spirale vectorielle</b>La spirale n’existe qu’en PNG de 334 x 349&nbsp;px&nbsp;: pas au-delà de 350&nbsp;px. Pour un grand format, une autre version du logo. L’ampoule ne la remplace pas&nbsp;: c’est un autre dessin. Les SVG du logo complet sont des recompositions&nbsp;: en cas de doute, le PNG fait foi.</div>
+  </div>
+</div>
+</body>
+</html>

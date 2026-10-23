@@ -1,0 +1,36 @@
+<!-- @dsCard group="Marque" viewport="700x290" name="Baseline" subtitle="Dream it, design it, do it" -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--white); color: var(--ink); font-family: var(--font-sans); font-size: 11.5px; line-height: 1.35; }
+  .card { width: 700px; padding: 16px 24px 18px; display: flex; flex-direction: column; gap: 12px; }
+  .lbl { font-weight: var(--fw-bold); font-size: 10.5px; letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--orange-burnt); }
+  .files { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .f { height: 74px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+  .f img { width: 260px; height: auto; display: block; }
+  .rules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .ru { border-top: 2px solid var(--ink); padding-top: 8px; font-size: 11px; }
+  .ru .big { font-family: var(--font-display); font-weight: var(--fw-bold); font-size: 22px; line-height: 1.1; margin: 4px 0 6px; }
+  .cap { font-size: 11px; margin-top: 4px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div>
+    <div class="lbl">Fichiers vectoriels · pied de page, sous le logo</div>
+    <div class="files" style="margin-top:8px">
+      <div><div class="f" style="box-shadow:inset 0 0 0 1px var(--ink-o14)"><img src="../assets/logos/baseline-black.svg" alt="Baseline SKISS"></div><div class="cap">baseline-black.svg, sur fond clair</div></div>
+      <div><div class="f" style="background:var(--dark-900)"><img src="../assets/logos/baseline-white.svg" alt="Baseline SKISS"></div><div class="cap">baseline-white.svg, sur fond sombre, aplat ou dégradé</div></div>
+    </div>
+  </div>
+  <div class="rules">
+    <div class="ru"><span class="lbl">Dans un texte</span><div class="big">«&#8239;Dream it, design it, do it&#8239;»</div>Casse de phrase, virgules collées au mot qui précède.</div>
+    <div class="ru"><span class="lbl">Dans le logo</span><div class="big">Tel que dessiné</div>La baseline dessinée garde son espace avant chaque virgule&nbsp;: on ne la corrige pas.</div>
+    <div class="ru"><span class="lbl">Seule exception</span><div class="big">«&#8239;Rêvez-le, dessinez-le, réalisez-le&#8239;»</div>Surtitre français du hero du site, sans majuscule après les virgules.</div>
+  </div>
+</div>
+</body>
+</html>

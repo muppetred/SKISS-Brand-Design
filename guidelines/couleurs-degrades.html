@@ -1,0 +1,65 @@
+<!-- @dsCard group="Couleurs" viewport="700x390" name="Les deux dégradés" subtitle="Deck pour les slides, social pour Instagram et les reels" -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--white); color: var(--ink); font-family: var(--font-sans); font-size: 12px; line-height: 1.35; }
+  .card { width: 700px; padding: 18px 24px 20px; display: grid; grid-template-columns: 1fr 196px; gap: 22px; }
+  .lbl { font-weight: var(--fw-bold); font-size: 10.5px; letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--orange-burnt); margin-bottom: 8px; }
+  .bar { height: 76px; border-radius: 12px; background: var(--gradient-deck); }
+  .ticks { position: relative; height: 40px; margin-top: 4px; font-size: 11px; line-height: 1.25; }
+  .tk { position: absolute; top: 0; display: flex; flex-direction: column; align-items: center; transform: translateX(-50%); white-space: nowrap; }
+  .tk::before { content: ""; width: 1px; height: 7px; background: var(--ink); margin-bottom: 2px; }
+  .tk.l { transform: none; align-items: flex-start; }
+  .tk.r { transform: translateX(-100%); align-items: flex-end; }
+  .tk.c { color: var(--ink-o72); }
+  .tk.c::before { background: var(--ink-o72); }
+  p { font-size: 11.5px; margin-top: 6px; }
+  .seg { display: flex; gap: 12px; align-items: center; margin-top: 14px; }
+  .seg .b { width: 150px; height: 34px; border-radius: var(--radius-pill); background: var(--gradient-deck-start); flex: none; display: flex; align-items: center; justify-content: center; font-weight: var(--fw-bold); font-size: 12px; color: var(--ink); }
+  .post { width: 196px; height: 245px; border-radius: 10px; background: var(--gradient-social); position: relative; overflow: hidden; }
+  .post svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .shapes { display: flex; gap: 6px; margin-top: 8px; }
+  .shapes div { flex: 1; height: 22px; border-radius: 6px; font-size: 10px; display: flex; align-items: center; justify-content: center; font-weight: var(--fw-bold); }
+  .small { font-size: 11px; margin-top: 6px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div>
+    <div class="lbl">Dégradé deck (signature) · slides et bandeaux</div>
+    <div class="bar"></div>
+    <div class="ticks">
+      <div class="tk l" style="left:0"><b>#F4B081</b>0&nbsp;%</div>
+      <div class="tk c" style="left:25%">#F0985D<span>contrôle 25&nbsp;%</span></div>
+      <div class="tk" style="left:52%"><b>#ED7F36</b>52&nbsp;%</div>
+      <div class="tk c" style="left:75%">#CF6823<span>contrôle 75&nbsp;%</span></div>
+      <div class="tk r" style="left:100%"><b>#B0500F</b>100&nbsp;%</div>
+    </div>
+    <p>Horizontal (90°), du clair à gauche au brûlé à droite, sans aucune variation verticale&nbsp;: identique sur les 41 pages du deck 2024. Token&nbsp;: <b>gradient-deck</b>. #B0500F ne sert qu’à cet arrêt.</p>
+    <div class="seg">
+      <div class="b">Lancer votre projet</div>
+      <div><b>Premier segment (gradient-deck-start)</b><br>De #F4B081 à #ED7F36&nbsp;: boutons en dégradé et mot accent, texte #12100C (6,96:1 au minimum). Jamais le dégradé complet sous un texte.</div>
+    </div>
+  </div>
+  <div>
+    <div class="lbl">Dégradé social · posts, reels</div>
+    <div class="post">
+      <svg viewBox="0 0 1080 1350" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M640 0C560 130 500 270 530 410C570 600 720 720 880 800C990 855 1050 930 1080 1000L1080 0Z" style="fill:var(--shape-1)" fill-opacity="0.6"/>
+        <path d="M0 1085C170 1035 330 1060 480 1120C640 1185 770 1250 890 1235C990 1222 1050 1160 1080 1110L1080 1350L0 1350Z" style="fill:var(--shape-2)" fill-opacity="0.65"/>
+        <path d="M0 1290C130 1235 270 1250 390 1300C430 1318 470 1336 505 1350L0 1350Z" style="fill:var(--shape-3)" fill-opacity="0.75"/>
+      </svg>
+    </div>
+    <div class="small">135°&nbsp;: #020101 à 0&nbsp;%, #F49A66 à 50&nbsp;%, #E7DDD7 à 100&nbsp;%. Formes en S, aplats translucides sans contour&nbsp;:</div>
+    <div class="shapes">
+      <div style="background:var(--shape-1)">#F7C3A5</div>
+      <div style="background:var(--shape-2)">#F5D2BD</div>
+      <div style="background:var(--shape-3)">#F3DED1</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

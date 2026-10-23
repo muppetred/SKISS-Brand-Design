@@ -1,0 +1,71 @@
+<!-- @dsCard group="Couleurs" viewport="700x460" name="Les six thèmes" subtitle="Classes CSS côte à côte, avec leur logo" -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--white); color: var(--ink); font-family: var(--font-sans); font-size: 12px; line-height: 1.35; }
+  .card { width: 700px; padding: 18px 24px 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .pn { position: relative; height: 205px; border-radius: var(--radius-card); padding: 14px; display: flex; flex-direction: column; gap: 6px; background: var(--background); color: var(--text); }
+  .pn.line { box-shadow: inset 0 0 0 1px var(--ink-o14); }
+  .nm { font-size: 11px; font-weight: var(--fw-bold); }
+  .cl { font-size: 10.5px; opacity: 1; }
+  .tt { font-family: var(--font-display); font-weight: var(--fw-bold); font-size: 27px; line-height: 1.05; margin-top: 8px; }
+  .bd { font-size: 12px; color: var(--text-muted); }
+  .bt { align-self: flex-start; margin-top: 4px; font-weight: var(--fw-bold); font-size: 11.5px; padding: 6px 13px; border-radius: var(--radius-pill); background: var(--btn-primary-bg); color: var(--btn-primary-text); }
+  .sig { position: absolute; right: 14px; bottom: 14px; display: flex; align-items: center; gap: 2.8px; }
+  .sig .sp { height: 19.6px; }
+  .sig .wm { height: 16px; }
+  .soc { justify-content: flex-end; align-items: flex-end; text-align: right; }
+  .soc .bt { align-self: flex-end; }
+  .soc .sig { right: auto; bottom: auto; left: 14px; top: 14px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="pn line">
+    <div class="nm">Clair, par défaut<br><span class="cl">:root</span></div>
+    <div class="tt">On en parle&#8239;?</div>
+    <div class="bd">Rien ne se lance sans tracking.</div>
+    <div class="bt">Commencer</div>
+    <div class="sig"><img class="sp" src="../assets/logos/spiral-black.png" alt=""><img class="wm" src="../assets/logos/wordmark-black.png" alt="SKISS"></div>
+  </div>
+  <div class="pn theme-dark">
+    <div class="nm">Sombre chaud<br><span class="cl">.theme-dark</span></div>
+    <div class="tt">On en parle&#8239;?</div>
+    <div class="bd">Rien ne se lance sans tracking.</div>
+    <div class="bt">Commencer</div>
+    <div class="sig"><img class="sp" src="../assets/logos/spiral-white.png" alt=""><img class="wm" src="../assets/logos/wordmark-white.png" alt="SKISS"></div>
+  </div>
+  <div class="pn theme-gradient">
+    <div class="nm">Dégradé deck, texte encre<br><span class="cl">.theme-gradient</span></div>
+    <div class="tt">On en parle&#8239;?</div>
+    <div class="bd">Rien ne se lance sans tracking.</div>
+    <div class="bt">Commencer</div>
+    <div class="sig"><img class="sp" src="../assets/logos/spiral-white.png" alt=""><img class="wm" src="../assets/logos/wordmark-white.png" alt="SKISS"></div>
+  </div>
+  <div class="pn theme-burnt">
+    <div class="nm">Aplat #B45311, texte blanc<br><span class="cl">.theme-burnt</span></div>
+    <div class="tt">On en parle&#8239;?</div>
+    <div class="bd">Rien ne se lance sans tracking.</div>
+    <div class="bt">Commencer</div>
+    <div class="sig"><img class="sp" src="../assets/logos/spiral-white.png" alt=""><img class="wm" src="../assets/logos/wordmark-white.png" alt="SKISS"></div>
+  </div>
+  <div class="pn theme-social soc">
+    <div class="nm">Dégradé Instagram<br><span class="cl">.theme-social</span></div>
+    <div class="tt" style="margin-top:2px">On en parle&#8239;?</div>
+    <div class="bd">Texte encre dans la moitié claire.</div>
+    <div class="bt">Commencer</div>
+    <div class="sig"><img class="sp" src="../assets/logos/spiral-white.png" alt=""><img class="wm" src="../assets/logos/wordmark-white.png" alt="SKISS"></div>
+  </div>
+  <div class="pn theme-cream">
+    <div class="nm">Crème<br><span class="cl">.theme-cream</span></div>
+    <div class="tt">On en parle&#8239;?</div>
+    <div class="bd">Rien ne se lance sans tracking.</div>
+    <div class="bt">Commencer</div>
+    <div class="sig"><img class="sp" src="../assets/logos/spiral-black.png" alt=""><img class="wm" src="../assets/logos/wordmark-black.png" alt="SKISS"></div>
+  </div>
+</div>
+</body>
+</html>

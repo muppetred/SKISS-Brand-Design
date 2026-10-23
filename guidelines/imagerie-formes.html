@@ -1,0 +1,44 @@
+<!-- @dsCard group="Imagerie" viewport="700x280" name="Formes graphiques" subtitle="Cercle hors cadre, S translucides, halos flous" -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--white); color: var(--ink); font-family: var(--font-sans); font-size: 11.5px; line-height: 1.35; }
+  .card { width: 700px; padding: 16px 24px 18px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .pn { position: relative; height: 170px; border-radius: 12px; overflow: hidden; }
+  .pn svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .cir { position: absolute; width: 198px; height: 198px; border-radius: 50%; background: var(--cover-circle); left: -134px; top: -78px; }
+  .halo { position: absolute; border-radius: 50%; filter: blur(30px); }
+  .cap { margin-top: 7px; font-size: 11px; }
+  .cap b { display: block; font-size: 11.5px; margin-bottom: 1px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div>
+    <div class="pn" style="background:var(--gradient-deck);background-size:307px 100%;background-position:left center"><div class="cir"></div></div>
+    <div class="cap"><b>Cercle hors cadre · couverture</b>Blanc à 51&nbsp;%, 1&nbsp;240&nbsp;px de diamètre sur 1920 x 1080, centré en (-218&#8239;; 130)&nbsp;: aux trois quarts hors cadre, en haut à gauche.</div>
+  </div>
+  <div>
+    <div class="pn" style="background:var(--gradient-social)">
+      <svg viewBox="0 0 1080 1350" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+        <path d="M640 0C560 130 500 270 530 410C570 600 720 720 880 800C990 855 1050 930 1080 1000L1080 0Z" style="fill:var(--shape-1)" fill-opacity="0.6"/>
+        <path d="M0 1085C170 1035 330 1060 480 1120C640 1185 770 1250 890 1235C990 1222 1050 1160 1080 1110L1080 1350L0 1350Z" style="fill:var(--shape-2)" fill-opacity="0.65"/>
+        <path d="M0 1290C130 1235 270 1250 390 1300C430 1318 470 1336 505 1350L0 1350Z" style="fill:var(--shape-3)" fill-opacity="0.75"/>
+      </svg>
+    </div>
+    <div class="cap"><b>Formes en S · posts</b>Grandes formes organiques plus claires que le fond (#F7C3A5, #F5D2BD, #F3DED1), en aplats translucides, sans contour.</div>
+  </div>
+  <div>
+    <div class="pn" style="background:var(--dark-900)">
+      <div class="halo" style="width:150px;height:150px;left:70px;top:-50px;background:var(--orange);opacity:.2"></div>
+      <div class="halo" style="width:130px;height:130px;left:-40px;top:70px;background:var(--orange-burnt);opacity:.15"></div>
+      <div class="halo" style="width:110px;height:110px;left:130px;top:100px;background:var(--peach);opacity:.08"></div>
+    </div>
+    <div class="cap"><b>Halos flous · site, fond sombre</b>Nuances d’orange, opacité de 5 à 20&nbsp;%, flou de 100 à 150&nbsp;px. Aperçu réduit.</div>
+  </div>
+</div>
+</body>
+</html>

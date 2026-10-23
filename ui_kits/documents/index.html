@@ -1,0 +1,91 @@
+<!-- @dsCard group="Documents" viewport="1280x720" name="Kit documents" subtitle="One-pager de proposition A4 et signature e-mail" -->
+<!-- @startingPoint section="Documents" subtitle="One-pager A4 et signature e-mail SKISS, côte à côte" viewport="1280x720" -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SKISS · Kit documents</title>
+<link rel="stylesheet" href="../../styles.css" />
+<link rel="stylesheet" href="documents.css" />
+<style>
+  html, body { height: 100%; }
+  body { margin: 0; overflow: hidden; background: var(--cream); color: var(--ink); font-family: var(--font-sans); }
+  .board { box-sizing: border-box; height: 100%; display: grid; grid-template-columns: auto 1fr; gap: 44px; align-items: center; padding: 28px 44px; }
+  /* A4 réduit : 794 x 1123 px ramenés à 468 x 662 px */
+  .a4 { width: 468px; height: 662px; box-shadow: 0 0 0 1px var(--ink-o14), 0 12px 32px -18px var(--ink-o72); background: var(--white); }
+  .a4 > div { width: 794px; height: 1123px; transform: scale(0.5894); transform-origin: 0 0; }
+  .side { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+  .side h1 { margin: 6px 0 0; font-family: var(--font-display); font-weight: var(--fw-bold); font-size: 44px; line-height: var(--leading-tight); }
+  .side .intro { margin: 8px 0 0; max-width: 560px; font-size: var(--text-small); line-height: 1.45; color: var(--ink-o72); }
+  .sk-eyebrow { color: var(--ink); font-size: 13px; }
+  .preview { display: flex; flex-direction: column; gap: 8px; }
+  .preview .label { margin: 0; font-size: var(--text-small); line-height: 1.35; }
+  .preview .label b { font-weight: var(--fw-bold); }
+  .preview .label span { color: var(--ink-o72); }
+  .mail { box-sizing: border-box; width: 640px; padding: 26px 40px; border-radius: var(--radius-card); box-shadow: 0 0 0 1px var(--ink-o14); }
+  .mail--light { background: var(--white); }
+  /* Simulation d'une messagerie en mode sombre : elle éclaircit le texte, mais ne touche pas aux images. */
+  .mail--dark { background: var(--dark-900); }
+  .mail--dark .sk-email-signature, .mail--dark .sk-email-signature p { color: var(--dark-text) !important; }
+  .mail--dark .sk-email-signature a[href^="mailto"] { color: var(--orange) !important; }
+  .mail--dark .sk-email-signature a[href^="tel"] { color: var(--dark-text) !important; }
+  .mail--dark .sk-email-signature td { border-color: var(--orange) !important; }
+</style>
+</head>
+<body>
+<main class="board">
+  <div class="a4" aria-label="One-pager A4, réduit"><div id="onepager"></div></div>
+
+  <section class="side">
+    <header>
+      <p class="sk-eyebrow">Documents</p>
+      <h1>One-pager A4 et signature e-mail</h1>
+      <p class="intro">One-pager prêt à imprimer (A4 portrait, marges de 15&nbsp;mm), bandeau en dégradé deck et cartes blanches à 62&nbsp;%. Signature e-mail en tableau HTML simple, logo en image sur fond blanc.</p>
+    </header>
+    <div class="preview">
+      <p class="label"><b>Signature e-mail</b> <span>· 560&nbsp;px, messagerie claire</span></p>
+      <div class="mail mail--light" data-signature></div>
+    </div>
+    <div class="preview">
+      <p class="label"><b>Même signature</b> <span>· messagerie en mode sombre, le logo garde son fond blanc</span></p>
+      <div class="mail mail--dark" data-signature></div>
+    </div>
+  </section>
+</main>
+
+<!-- La signature, copie du tableau de email-signature.html (la source à coller dans une messagerie). Incluse ici
+     plutôt que chargée par fetch, pour que la carte s'affiche quelle que soit la façon dont elle est servie.
+     En cas de changement, modifier les deux fichiers. -->
+<template id="sk-signature">
+<table class="sk-email-signature" role="presentation" width="560" cellpadding="0" cellspacing="0" border="0" style="width:560px;border-collapse:collapse;font-family:Hind,'Helvetica Neue',Arial,sans-serif;color:#12100C;">
+  <tr>
+    <td width="167" valign="middle" style="width:167px;padding:0 18px 0 0;vertical-align:middle;">
+      <img src="email-signature-logo.png" width="167" height="56" alt="SKISS" style="display:block;width:167px;height:56px;border:0;outline:none;text-decoration:none;" />
+    </td>
+    <td valign="middle" style="padding:2px 0 2px 18px;border-left:2px solid #B45311;vertical-align:middle;">
+      <p style="margin:0;font-size:16px;line-height:22px;font-weight:700;color:#12100C;">Martin Elegeert</p>
+      <p style="margin:0;font-size:14px;line-height:20px;font-weight:400;color:#12100C;">Media buying, IA et contenu · SKISS</p>
+      <p style="margin:4px 0 0;font-size:14px;line-height:20px;font-weight:400;color:#12100C;"><a href="mailto:elegeertmartin.skiss@gmail.com" style="color:#B45311;text-decoration:none;">elegeertmartin.skiss@gmail.com</a> · <a href="tel:+32499056643" style="color:#12100C;text-decoration:none;white-space:nowrap;">+32&nbsp;499&nbsp;05&nbsp;66&nbsp;43</a></p>
+    </td>
+  </tr>
+</table>
+</template>
+<script>
+  var skSignature = document.getElementById("sk-signature").content;
+  document.querySelectorAll("[data-signature]").forEach(function (slot) { slot.appendChild(skSignature.cloneNode(true)); });
+</script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script>
+  // Le nom exact de l’espace de noms est fixé par Claude Design à la compilation : on le cherche une seule fois ici.
+  window.SKDS = window[Object.keys(window).find(function (k) { return /DesignSystem_/.test(k); })];
+</script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" data-presets="react" src="DocOnePager.jsx"></script>
+<script type="text/babel" data-presets="react">
+  ReactDOM.createRoot(document.getElementById("onepager")).render(<DocOnePager />);
+</script>
+</body>
+</html>

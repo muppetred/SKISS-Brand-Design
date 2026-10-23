@@ -1,0 +1,40 @@
+<!-- @dsCard group="Couleurs" viewport="700x310" name="Neutres et encre" subtitle="Blanc, encre, noir du logo et trois crèmes" -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--white); color: var(--ink); font-family: var(--font-sans); font-size: 12px; line-height: 1.35; }
+  .card { width: 700px; padding: 18px 24px 20px; display: flex; flex-direction: column; gap: 9px; }
+  .lbl { font-weight: var(--fw-bold); font-size: 10.5px; letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--orange-burnt); }
+  .row { display: grid; gap: 8px; }
+  .r4 { grid-template-columns: repeat(4, 1fr); }
+  .r3 { grid-template-columns: repeat(3, 1fr); }
+  .sw { border-radius: var(--radius-card); padding: 10px 12px; display: flex; flex-direction: column; justify-content: flex-end; gap: 1px; }
+  .r4 .sw { height: 120px; }
+  .r3 .sw { height: 84px; }
+  .sw b { font-size: 12.5px; }
+  .sw .role { font-size: 11px; line-height: 1.3; }
+  .line { box-shadow: inset 0 0 0 1px var(--border); }
+  .tag { display: inline-block; margin-left: 4px; font-size: 9.5px; font-weight: var(--fw-bold); letter-spacing: 0.06em; text-transform: uppercase; padding: 0 6px; border-radius: var(--radius-pill); border: 1px solid currentColor; vertical-align: 1px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="lbl">Fonds, texte et logo</div>
+  <div class="row r4">
+    <div class="sw line" style="background:var(--white);color:var(--ink)"><b>white</b><span>#FFFFFF</span><span class="role">Fond clair, texte sur aplat foncé</span></div>
+    <div class="sw" style="background:var(--ink);color:var(--white)"><b>ink <span class="tag">Proposition</span></b><span>#12100C</span><span class="role">Texte foncé&nbsp;: le brun-noir chaud du fond du site</span></div>
+    <div class="sw" style="background:var(--black);color:var(--white)"><b>black</b><span>#000000</span><span class="role">Logo noir uniquement, jamais pour du texte</span></div>
+    <div class="sw" style="background:var(--cream);color:var(--ink)"><b>cream</b><span>#F6D9C7</span><span class="role">Panneaux, cartes claires, fond clair des posts</span></div>
+  </div>
+  <div class="lbl" style="margin-top:6px">Trois crèmes, chacun dans son contexte</div>
+  <div class="row r3">
+    <div class="sw" style="background:var(--cream);color:var(--ink)"><b>cream · #F6D9C7</b><span class="role">Slides et posts clairs</span></div>
+    <div class="sw" style="background:var(--dark-cream);color:var(--ink)"><b>dark-cream · #EDE8DE</b><span class="role">Crème du site, variante sombre</span></div>
+    <div class="sw" style="background:#E7DDD7;color:var(--ink)"><b>#E7DDD7</b><span class="role">Fin du dégradé social, arrêt de dégradé seulement</span></div>
+  </div>
+</div>
+</body>
+</html>

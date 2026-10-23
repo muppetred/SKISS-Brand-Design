@@ -1,0 +1,77 @@
+/* SKISS : styles d'éléments et utilitaires. */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-main);
+  line-height: var(--leading-body);
+  color: var(--text);
+  background: var(--background);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  line-height: var(--leading-tight);
+  margin: 0;
+  text-wrap: balance;
+}
+h1 { font-size: var(--text-h1); line-height: var(--leading-display); }
+h2 { font-size: var(--text-h2); }
+h3 { font-size: var(--text-h3); }
+p { margin: 0; text-wrap: pretty; }
+
+a { color: var(--link); text-decoration: underline; text-underline-offset: 0.15em; }
+a:hover { color: var(--link-hover); }
+
+::selection { background: var(--selection-bg); color: var(--selection-text); }
+
+:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+
+/* Les thèmes posent leur fond et leur texte */
+.theme-light, .theme-dark, .theme-gradient, .theme-burnt, .theme-social, .theme-cream {
+  background: var(--background);
+  color: var(--text);
+}
+
+/* Surtitre : capitales espacées */
+.sk-eyebrow {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-bold);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--heading-accent);
+}
+
+/* Titre d'affiche en Khand */
+.sk-display {
+  font-family: var(--font-display);
+  font-weight: var(--fw-regular);
+  line-height: var(--leading-display);
+  text-transform: uppercase;
+}
+
+/* Mot accent rempli du premier segment du dégradé deck (remplace l'italique du site) */
+.sk-accent-word {
+  background: var(--gradient-deck-start);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: var(--fw-bold);
+}
+
+.sk-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

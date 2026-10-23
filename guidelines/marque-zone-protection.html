@@ -1,0 +1,49 @@
+<!-- @dsCard group="Marque" viewport="700x355" name="Zone de protection" subtitle="Proposition : x, la hauteur du wordmark, tout autour" -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--white); color: var(--ink); font-family: var(--font-sans); font-size: 11.5px; line-height: 1.35; }
+  .card { width: 700px; padding: 16px 24px 18px; display: grid; grid-template-columns: 452px 1fr; gap: 24px; }
+  .lbl { font-weight: var(--fw-bold); font-size: 10.5px; letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--orange-burnt); }
+  .tag { display: inline-block; margin-left: 6px; font-size: 9.5px; font-weight: var(--fw-bold); letter-spacing: 0.06em; text-transform: uppercase; padding: 0 7px; border-radius: var(--radius-pill); border: 1px solid var(--orange-burnt); color: var(--orange-burnt); }
+  .zone { position: relative; margin-top: 10px; outline: 1px dashed var(--orange-burnt); outline-offset: -1px; background-color: var(--cream); background-image: repeating-linear-gradient(135deg, rgb(180 83 17 / 0.16) 0 1px, transparent 1px 8px); }
+  .inner { background: var(--white); outline: 1px dotted var(--ink-o72); }
+  .crop { overflow: hidden; }
+  .crop img { display: block; }
+  .x { position: absolute; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: var(--fw-bold); color: var(--orange-burnt); }
+  .xb { position: absolute; border-left: 2px solid var(--orange-burnt); }
+  .xb::before, .xb::after { content: ""; position: absolute; left: -5px; width: 8px; border-top: 2px solid var(--orange-burnt); }
+  .xb::before { top: 0; } .xb::after { bottom: 0; }
+  .side { display: flex; flex-direction: column; gap: 10px; }
+  .rule { font-size: 12px; }
+  .rule b { color: var(--orange-burnt); }
+  .note { font-size: 11px; color: var(--ink-o72); }
+  .sigz { position: relative; padding: 20px; align-self: flex-start; }
+  .sig { display: flex; align-items: center; gap: 12px; }
+  .sig .sp { height: 36px; } .sig .wm { height: 20px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div>
+    <div class="lbl">Logo complet horizontal, 330&nbsp;px<span class="tag">Proposition</span></div>
+    <div class="zone" style="padding:61px">
+      <div class="inner"><div class="crop" style="width:330px;height:162px"><img src="../assets/logos/logo-horizontal-black.png" alt="SKISS, logo complet horizontal" style="width:339px;height:162px"></div></div>
+      <div class="x" style="left:0;top:0;width:61px;height:61px;font-size:22px">x</div>
+      <div class="x" style="right:0;bottom:0;width:61px;height:61px;font-size:22px">x</div>
+      <div class="xb" style="left:400px;top:99px;height:61px"></div>
+      <div class="x" style="left:406px;top:112px;width:30px;height:30px;font-size:18px">x</div>
+    </div>
+  </div>
+  <div class="side">
+    <div class="rule"><b>Règle proposée</b><br>Tout autour du logo, garder libre un espace égal à <b>x</b>, la hauteur du wordmark SKISS.</div>
+    <div class="note">Aucune source ne fixe la zone de protection. Repère cohérent avec le deck&nbsp;: la signature des slides a un wordmark de 45&nbsp;px et se tient à 48&nbsp;px des bords.</div>
+    <div class="rule" style="margin-top:4px"><b>Barre de navigation</b>&nbsp;: wordmark de 20&nbsp;px, donc x = 20&nbsp;px.</div>
+    <div class="zone sigz"><div class="inner"><div class="sig"><img class="sp" src="../assets/logos/spiral-black.png" alt=""><img class="wm" src="../assets/logos/wordmark-black.png" alt="SKISS"></div></div></div>
+  </div>
+</div>
+</body>
+</html>

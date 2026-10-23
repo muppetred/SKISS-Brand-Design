@@ -1,0 +1,54 @@
+<!-- @dsCard group="Marque" viewport="700x360" name="Signature de page" subtitle="Spirale et wordmark côte à côte, en taille réelle" -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--white); color: var(--ink); font-family: var(--font-sans); font-size: 11.5px; line-height: 1.35; }
+  .card { width: 700px; padding: 16px 24px 18px; display: flex; flex-direction: column; gap: 12px; }
+  .lbl { font-weight: var(--fw-bold); font-size: 10.5px; letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--orange-burnt); }
+  .strip { position: relative; height: 158px; border-radius: 10px; background: var(--gradient-deck); background-size: 1920px 100%; background-position: right center; }
+  .spec { position: absolute; left: 16px; top: 14px; width: 330px; color: var(--ink); }
+  .spec b.t { display: block; font-size: 10.5px; letter-spacing: var(--tracking-label); text-transform: uppercase; margin-bottom: 4px; }
+  .sig { display: flex; align-items: center; }
+  .sig img { display: block; }
+  .s-slide { position: absolute; right: 48px; bottom: 48px; gap: 8px; outline: 1px dashed rgb(255 255 255 / 0.7); outline-offset: 0; }
+  .s-slide .sp { height: 55px; } .s-slide .wm { height: 45px; }
+  .dimh { position: absolute; right: 0; width: 48px; bottom: 75px; border-top: 1px solid var(--white); }
+  .dimv { position: absolute; bottom: 0; height: 48px; right: 160px; border-left: 1px solid var(--white); }
+  .dl { position: absolute; color: var(--white); font-size: 10.5px; font-weight: var(--fw-bold); }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .tile { border-radius: 10px; padding: 16px; height: 104px; display: flex; flex-direction: column; justify-content: space-between; }
+  .light { box-shadow: inset 0 0 0 1px var(--ink-o14); }
+  .s-light { gap: 8px; } .s-light .sp { height: 55px; } .s-light .wm { height: 45px; }
+  .nav { display: flex; align-items: center; justify-content: space-between; }
+  .s-nav { gap: 12px; } .s-nav .sp { height: 36px; } .s-nav .wm { height: 20px; }
+  .links { display: flex; gap: 14px; color: var(--dark-muted); font-size: 12px; }
+  .cap { font-size: 11px; }
+  .note { font-size: 11px; color: var(--ink-o72); }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="strip">
+    <div class="spec"><b class="t">Slides 1920 x 1080 · coin bas droit, taille réelle</b>Spirale de 55&nbsp;px de haut, wordmark de 45&nbsp;px, écart de 8&nbsp;px&nbsp;: 225&nbsp;px de large (11,7&nbsp;%). À 48&nbsp;px du bord droit et du bas. Blanche sur le dégradé deck (5,25:1 au bord droit).</div>
+    <div class="sig s-slide"><img class="sp" src="../assets/logos/spiral-white.png" alt=""><img class="wm" src="../assets/logos/wordmark-white.png" alt="SKISS"></div>
+    <div class="dimh"></div><div class="dl" style="right:10px;bottom:79px">48</div>
+    <div class="dimv"></div><div class="dl" style="right:166px;bottom:18px">48</div>
+  </div>
+  <div class="tiles">
+    <div class="tile light">
+      <div class="sig s-light"><img class="sp" src="../assets/logos/spiral-black.png" alt=""><img class="wm" src="../assets/logos/wordmark-black.png" alt="SKISS"></div>
+      <div class="cap"><b>Fond clair&nbsp;: signature noire</b>, mêmes cotes.</div>
+    </div>
+    <div class="tile" style="background:var(--dark-900);color:var(--dark-text)">
+      <div class="nav"><div class="sig s-nav"><img class="sp" src="../assets/logos/spiral-white.png" alt=""><img class="wm" src="../assets/logos/wordmark-white.png" alt="SKISS"></div>
+        <div class="links"><span>Services</span><span>Nous</span><span>Contact</span></div></div>
+      <div class="cap"><b>Barre de navigation du site</b>&nbsp;: spirale 36&nbsp;px, wordmark 20&nbsp;px, écart 12&nbsp;px.</div>
+    </div>
+  </div>
+  <div class="note">Toujours composée avec les deux PNG, jamais retapée. Wordmark jamais sous 16&nbsp;px de haut (pied de page du site). Pas de signature sur les slides qui portent déjà le logo complet (couverture, fin).</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!-- @dsCard group="Deck 16:9" viewport="1280x720" name="Deck : vue d’ensemble" subtitle="Six slides du deck de proposition en vignettes" -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<title>SKISS · Deck, vue d’ensemble</title>
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  body { margin: 0; overflow: hidden; background: var(--background); color: var(--text); font-family: var(--font-sans); }
+  .wrap { height: 720px; padding: 0 40px; display: flex; flex-direction: column; justify-content: center; }
+  .head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-5); margin-bottom: 28px; }
+  .head h1 { font-size: 40px; line-height: var(--leading-tight); }
+  .head p { font-size: var(--text-small); color: var(--text-muted); }
+  .grid { display: grid; grid-template-columns: repeat(3, 384px); justify-content: space-between; row-gap: 28px; }
+  .tile { display: flex; flex-direction: column; gap: 10px; margin: 0; }
+  .thumb { border-radius: 6px; overflow: hidden; outline: 1px solid var(--border); }
+  .tile figcaption { font-size: var(--text-small); line-height: 1.3; color: var(--text-muted); }
+  .tile figcaption b { color: var(--text); }
+</style>
+</head>
+<body class="theme-dark">
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script>
+  window.SKDS = window[Object.keys(window).find(function (k) { return /DesignSystem_/.test(k); })];
+</script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" data-presets="react" src="DeckParts.jsx"></script>
+<script type="text/babel" data-presets="react" src="SlideCover.jsx"></script>
+<script type="text/babel" data-presets="react" src="SlideSection.jsx"></script>
+<script type="text/babel" data-presets="react" src="SlideCapsules.jsx"></script>
+<script type="text/babel" data-presets="react" src="SlideSteps.jsx"></script>
+<script type="text/babel" data-presets="react" src="SlideChevrons.jsx"></script>
+<script type="text/babel" data-presets="react" src="SlideFigures.jsx"></script>
+<script type="text/babel" data-presets="react" src="SlidePricing.jsx"></script>
+<script type="text/babel" data-presets="react" src="SlideTeam.jsx"></script>
+<script type="text/babel" data-presets="react" src="SlideQuote.jsx"></script>
+<script type="text/babel" data-presets="react" src="SlideEnd.jsx"></script>
+<script type="text/babel" data-presets="react" src="Deck.jsx"></script>
+<script type="text/babel" data-presets="react">
+  // Six vignettes à 20 % (384 x 216) : écrans 1, 2, 3, 4, 5 et 6 du brief.
+  function DeckOverview() {
+    const all = window.SKISS_DECK_SLIDES;
+    const picks = ["couverture", "section", "capsules", "chiffres", "tarifs", "equipe"];
+    const shown = picks.map((id) => ({ ...all.find((s) => s.id === id), n: all.findIndex((s) => s.id === id) + 1 }));
+    return (
+      <div className="wrap">
+        <header className="head">
+          <h1>Deck de proposition</h1>
+          <p>1920 x 1080, grille du deck 2024 · {all.length} slides dans la visionneuse</p>
+        </header>
+        <div className="grid">
+          {shown.map(({ id, label, n, Component }) => (
+            <figure className="tile" key={id}>
+              <div className="thumb"><Component scale={0.2} /></div>
+              <figcaption><b>{String(n).padStart(2, "0")}</b> · {label}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById("root")).render(<DeckOverview />);
+</script>
+</body>
+</html>

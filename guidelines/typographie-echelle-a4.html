@@ -1,0 +1,48 @@
+<!-- @dsCard group="Typographie" viewport="700x330" name="Échelle A4" subtitle="One-pager et documents, en points" -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--white); color: var(--ink); font-family: var(--font-sans); font-size: 11.5px; line-height: 1.3; }
+  .card { width: 700px; padding: 16px 24px 18px; display: grid; grid-template-columns: 1fr 170px; gap: 26px; }
+  .lbl { font-weight: var(--fw-bold); font-size: 10.5px; letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--orange-burnt); }
+  .sp { display: grid; grid-template-columns: 108px 1fr; gap: 12px; align-items: baseline; border-top: 1px solid var(--ink-o14); padding: 7px 0; }
+  .sp:first-of-type { margin-top: 8px; }
+  .sp .m b { display: block; font-size: 12.5px; }
+  .sp .m span { color: var(--ink-o72); font-size: 10.5px; display: block; }
+  .t { font-family: var(--font-display); font-weight: var(--fw-bold); font-size: 40px; line-height: 1; }
+  .i { font-size: 18.67px; line-height: 1.3; }
+  .b { font-size: 14.4px; line-height: 1.4; }
+  .page { position: relative; width: 170px; height: 240px; background: var(--white); box-shadow: 0 0 0 1px var(--ink-o14), 0 6px 18px rgb(18 16 12 / 0.08); border-radius: 2px; }
+  .mg { position: absolute; inset: 12px; border: 1px dashed var(--orange-burnt); }
+  .bar { position: absolute; left: 17px; height: 5px; border-radius: 2px; background: var(--ink); }
+  .cap { font-size: 10.5px; color: var(--ink-o72); margin-top: 6px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div>
+    <div class="lbl">Taille en points · équivalent écran à 96 ppp</div>
+    <div class="sp"><div class="m"><b>Titre</b><span>Khand 700</span><span>30&nbsp;pt · 40&nbsp;px</span></div><div class="t">Trois blocs, trois prix, zéro surprise.</div></div>
+    <div class="sp"><div class="m"><b>Introduction</b><span>Hind 400</span><span>14&nbsp;pt · 18,7&nbsp;px</span></div><div class="i">On regarde ce qui existe, on construit ce qui manque, puis on pilote dans la durée.</div></div>
+    <div class="sp"><div class="m"><b>Texte</b><span>Hind 400</span><span>10,8&nbsp;pt · 14,4&nbsp;px</span></div><div class="b">Ce qui tourne, ce qui brûle du budget, ce qu’on répare en premier.</div></div>
+  </div>
+  <div>
+    <div class="page">
+      <div class="mg"></div>
+      <div class="bar" style="top:22px;width:60px;height:7px;background:var(--dark-muted)"></div>
+      <div class="bar" style="top:44px;width:112px;height:9px"></div>
+      <div class="bar" style="top:58px;width:96px;height:9px"></div>
+      <div class="bar" style="top:78px;width:136px;height:4px;background:var(--ink-o72)"></div>
+      <div class="bar" style="top:86px;width:124px;height:4px;background:var(--ink-o72)"></div>
+      <div class="bar" style="top:104px;width:136px;height:42px;background:var(--cream)"></div>
+      <div class="bar" style="top:152px;width:136px;height:42px;background:var(--cream)"></div>
+      <div class="bar" style="top:212px;width:110px;height:3px;background:var(--ink-o72)"></div>
+    </div>
+    <div class="cap">Marges de 43&nbsp;pt (15&nbsp;mm). Valeurs du PDF des formules media buying (A4, 2026).</div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!-- @dsCard group="Blocs éditoriaux" viewport="1536x672" name="Blocs éditoriaux" subtitle="Cadres de slide et de post sur six thèmes" -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  body { margin: 0; background: var(--white); font-family: var(--font-sans); }
+  .grid { display: grid; grid-template-columns: repeat(3, 480px); gap: 20px; padding: 28px; }
+  .tile { display: flex; flex-direction: column; gap: 8px; }
+  .thumb { width: 480px; height: 270px; display: flex; justify-content: center; gap: 16px; box-shadow: 0 0 0 1px var(--ink-o14); }
+  .label { font-size: 14px; line-height: 20px; color: var(--ink-o72); }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="../../_ds_bundle.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel">
+    // Le nom exact de l'espace de noms est fixé par Claude Design au moment de la compilation : on le cherche.
+    const DS = window[Object.keys(window).find((k) => /DesignSystem_/.test(k))];
+    const { SlideFrame, PostFrame, SectionTitle, KeyFigure, ProcessSteps, PriceTable, Quote } = DS;
+
+    const S = 0.25;
+    const Tile = ({ label, children }) => (
+      <div className="tile"><div className="thumb">{children}</div><div className="label">{label}</div></div>
+    );
+    const figures = [
+      ["10 ans", "à piloter des budgets média"],
+      ["500 €", "En dessous de 500 € par mois, aucune campagne ne sort de la phase d’apprentissage."],
+      ["3 mois", "minimum sur la gestion : le temps nécessaire pour lire un résultat"],
+    ];
+    const blocs = [
+      { title: "Bloc A · Audit", text: "Ce qui tourne, ce qui brûle du budget, ce qu’on répare en premier." },
+      { title: "Bloc B · Set-up", text: "Tracking, structure de compte, audiences, première campagne en ligne." },
+      { title: "Bloc C · Gestion", text: "Pilotage mensuel, itérations créatives, arbitrage budgétaire, reporting." },
+    ];
+    const prices = [
+      { service: "Audit express", duration: "0,5 jour", price: "300 €" },
+      { service: "Audit complet", duration: "1 jour", price: "600 €" },
+      { service: "Cadrage & roadmap", duration: "0,75 jour", price: "450 €" },
+      { service: "Set-up essentiel", duration: "1,5 jour · 1 canal", price: "850 €" },
+      { service: "Set-up complet", duration: "2,5 jours · 2 canaux", price: "1 400 €" },
+      { service: "Gestion essentielle", duration: "0,75 jour / mois", price: "450 € / mois" },
+      { service: "Gestion standard", duration: "1,5 jour / mois", price: "850 € / mois" },
+    ];
+    const postTitle = { margin: 0, fontFamily: "var(--font-display)", fontWeight: "var(--fw-bold)", fontSize: "var(--post-title)", lineHeight: "var(--leading-tight)" };
+
+    function Board() {
+      return (
+        <div className="grid">
+          <Tile label="Dégradé deck · intercalaire">
+            <SlideFrame theme="gradient" scale={S}><SectionTitle>Stratégie</SectionTitle></SlideFrame>
+          </Tile>
+          <Tile label="Aplat brûlé · chiffres clés">
+            <SlideFrame theme="burnt" scale={S} title="[Titre de la slide]">
+              <div style={{ display: "flex", justifyContent: "space-between", gap: 60 }}>
+                {figures.map(([v, c]) => <KeyFigure key={v} value={v} caption={c} />)}
+              </div>
+            </SlideFrame>
+          </Tile>
+          <Tile label="Sombre chaud · processus en trois étapes">
+            <SlideFrame theme="dark" scale={S} title="Trois blocs, trois prix, zéro surprise.">
+              <ProcessSteps steps={blocs} />
+            </SlideFrame>
+          </Tile>
+          <Tile label="Clair · tableau de prix">
+            <SlideFrame theme="light" scale={S} title="Grille tarifaire">
+              <PriceTable rows={prices} />
+            </SlideFrame>
+          </Tile>
+          <Tile label="Crème · citation">
+            <SlideFrame theme="cream" scale={S}>
+              <Quote author="Martin Elegeert · SKISS">L’IA comme méthode, pas comme gadget.</Quote>
+            </SlideFrame>
+          </Tile>
+          <Tile label="Social · post 1080 x 1350 et reel 1080 x 1920">
+            <PostFrame scale={0.2}><h2 style={postTitle}>Rien ne se lance sans tracking.</h2></PostFrame>
+            <PostFrame format="reel" scale={270 / 1920}><h2 style={postTitle}>Aftermovie</h2></PostFrame>
+          </Tile>
+        </div>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById("root")).render(<Board />);
+  </script>
+</body>
+</html>

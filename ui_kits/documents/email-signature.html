@@ -1,0 +1,39 @@
+<!-- @dsCard group="Documents" viewport="700x260" name="Signature e-mail" subtitle="Tableau HTML de 560 px, logo sur fond blanc" -->
+<!-- @startingPoint section="Documents" subtitle="Signature e-mail en tableau HTML, 560 px de large, logo sur fond blanc" viewport="700x260" -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=700" />
+<title>SKISS · Signature e-mail</title>
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  html, body { margin: 0; width: 700px; height: 260px; overflow: hidden; }
+  body { background: var(--white); color: var(--ink); font-family: var(--font-sans); }
+  .stage { box-sizing: border-box; height: 100%; padding: 56px 70px 28px; display: flex; flex-direction: column; justify-content: space-between; }
+  .note { margin: 0; padding-top: 12px; border-top: 1px solid var(--border); font-size: 12px; line-height: 1.45; color: var(--text-muted); }
+</style>
+</head>
+<body>
+<div class="stage">
+<!-- Signature à copier telle quelle (brief, écran 13). Tableau simple, styles en ligne et couleurs en hex : les messageries
+     ignorent les feuilles de style, les variables CSS et les polices web (Hind retombe alors sur Helvetica Neue ou Arial).
+     Valeurs : encre #12100C (--ink), orange brûlé #B45311 (--orange-burnt, 5,02:1 sur blanc). Le logo spirale + wordmark noir
+     est intégré sur fond blanc dans l'image : il reste visible quand la messagerie passe en mode sombre (1,11:1 sinon).
+     Avant usage, héberger email-signature-logo.png en ligne et remplacer le chemin relatif par son adresse complète. -->
+<table class="sk-email-signature" role="presentation" width="560" cellpadding="0" cellspacing="0" border="0" style="width:560px;border-collapse:collapse;font-family:Hind,'Helvetica Neue',Arial,sans-serif;color:#12100C;">
+  <tr>
+    <td width="167" valign="middle" style="width:167px;padding:0 18px 0 0;vertical-align:middle;">
+      <img src="email-signature-logo.png" width="167" height="56" alt="SKISS" style="display:block;width:167px;height:56px;border:0;outline:none;text-decoration:none;" />
+    </td>
+    <td valign="middle" style="padding:2px 0 2px 18px;border-left:2px solid #B45311;vertical-align:middle;">
+      <p style="margin:0;font-size:16px;line-height:22px;font-weight:700;color:#12100C;">Martin Elegeert</p>
+      <p style="margin:0;font-size:14px;line-height:20px;font-weight:400;color:#12100C;">Media buying, IA et contenu · SKISS</p>
+      <p style="margin:4px 0 0;font-size:14px;line-height:20px;font-weight:400;color:#12100C;"><a href="mailto:elegeertmartin.skiss@gmail.com" style="color:#B45311;text-decoration:none;">elegeertmartin.skiss@gmail.com</a> · <a href="tel:+32499056643" style="color:#12100C;text-decoration:none;white-space:nowrap;">+32&nbsp;499&nbsp;05&nbsp;66&nbsp;43</a></p>
+    </td>
+  </tr>
+</table>
+<p class="note">Largeur proposée&nbsp;: 560&nbsp;px. Logo en image sur fond blanc, visible aussi en mode sombre&#8239;; texte en vrai texte.</p>
+</div>
+</body>
+</html>

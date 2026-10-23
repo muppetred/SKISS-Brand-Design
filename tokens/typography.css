@@ -1,0 +1,53 @@
+/* SKISS : typographie. Khand pour les titres, Hind pour le texte. 400 et 700. */
+:root {
+  --font-display: "Khand", "Arial Narrow", sans-serif;
+  --font-sans: "Hind", "Helvetica Neue", Arial, sans-serif;
+
+  --fw-regular: 400;
+  --fw-bold: 700;
+
+  --leading-display: 0.95;     /* H1 web (mesuré sur le site) */
+  --leading-tight: 1.05;
+  --leading-deck: 1.2;         /* interlignage mesuré dans le deck, Khand et Hind */
+  --leading-body: 1.5;
+
+  --tracking-normal: 0em;
+  --tracking-label: 0.08em;    /* libellés en capitales (proposition) */
+  --tracking-eyebrow: 0.3em;   /* surtitres en capitales espacées (site) */
+
+  /* Échelle des slides 16:9, 1920 x 1080 (tailles du deck en pt x 2) */
+  --slide-section: 230px;      /* intercalaire, Khand 400, capitales */
+  --slide-statement: 132px;    /* phrase d'intercalaire, slide de fin */
+  --slide-figure: 144px;       /* chiffre clé */
+  --slide-number: 132px;       /* chiffre de carte numérotée */
+  --slide-quote: 108px;        /* citation, Khand 400 */
+  --slide-title: 88px;         /* titre de page, Khand 700 */
+  --slide-amount: 72px;        /* montant, Khand 700 */
+  --slide-label: 56px;         /* libellé de carte numérotée, capitales */
+  --slide-card-title: 40px;    /* titre de carte, Khand 700 */
+  --slide-capsule: 56px;       /* texte de capsule, Hind 700 */
+  --slide-large: 48px;         /* grand texte, Hind 400 */
+  --slide-body: 36px;          /* texte courant, Hind 400 */
+  --slide-min: 28px;           /* légende, source */
+
+  /* Échelle Instagram 1080 x 1350 et reel 1080 x 1920 (proposition, repères mesurés sur les posts et le site mobile) */
+  --post-title: 116px;
+  --post-subtitle: 84px;
+  --post-body: 50px;
+  --post-eyebrow: 39px;
+  --post-min: 28px;
+
+  /* Échelle A4 (en pt, d'après le PDF des formules media buying) */
+  --a4-title: 30pt;
+  --a4-lead: 14pt;
+  --a4-body: 10.8pt;
+
+  /* Échelle web (site, desktop puis mobile) */
+  --text-h1: clamp(3rem, 1.6rem + 4.4vw, 6rem);        /* 48 à 96 px */
+  --text-h2: clamp(2.25rem, 1.55rem + 2.2vw, 3.75rem); /* 36 à 60 px */
+  --text-h3: 1.5rem;                                   /* 24 px */
+  --text-lead: clamp(1.125rem, 1.08rem + 0.2vw, 1.25rem); /* 18 à 20 px */
+  --text-main: 1rem;                                   /* 16 px */
+  --text-small: 0.875rem;                              /* 14 px */
+  --text-eyebrow: clamp(0.75rem, 0.7rem + 0.25vw, 1rem); /* 12 à 16 px */
+}

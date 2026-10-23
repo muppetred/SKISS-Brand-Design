@@ -1,0 +1,68 @@
+<!-- @dsCard group="Couleurs" viewport="700x430" name="Transparences et voiles" subtitle="Une transparence pour les capsules, des voiles toujours en encre" -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--white); color: var(--ink); font-family: var(--font-sans); font-size: 12px; line-height: 1.35; }
+  .card { width: 700px; padding: 16px 24px 18px; }
+  .head { font-size: 12px; margin-bottom: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px 12px; }
+  .tile { position: relative; height: 112px; border-radius: 12px; overflow: hidden; }
+  .ph { position: absolute; inset: 0; background-color: var(--dark-cream); background-image: repeating-linear-gradient(135deg, rgb(18 16 12 / 0.07) 0 1px, transparent 1px 9px); }
+  .lay { position: absolute; inset: 0; }
+  .ct { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 4px; padding: 10px; }
+  .cap { margin-top: 6px; font-size: 11px; }
+  .cap b { display: block; font-size: 11.5px; }
+  .pill { background: var(--capsule-bg); color: var(--ink); font-weight: var(--fw-bold); font-size: 12.5px; padding: 9px 16px; border-radius: var(--radius-pill); width: 100%; }
+  .sig { display: flex; align-items: center; gap: 2.8px; }
+  .sig .sp { height: 19.6px; } .sig .wm { height: 16px; }
+  .k { font-family: var(--font-display); font-size: 26px; line-height: 1; color: var(--white); }
+  .w { color: var(--white); font-size: 12px; }
+  .circle { position: absolute; width: 136px; height: 136px; border-radius: 50%; background: var(--cover-circle); left: -92px; top: -54px; }
+  .mini { display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: 10px 12px; height: 100%; }
+  .row { display: flex; align-items: center; gap: 8px; font-size: 11px; }
+  .bx { width: 40px; height: 22px; border-radius: 6px; flex: none; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="head">Une seule transparence pour les capsules et les cartes&nbsp;: <b>blanc à 62&nbsp;%</b>. Les voiles sont toujours en <b>#12100C</b>, en aplat ou en dégradé localisé.</div>
+  <div class="grid">
+    <div>
+      <div class="tile" style="background:var(--gradient-deck)"><div class="ct" style="padding:0 14px"><div class="pill">On regarde ce qui existe</div></div></div>
+      <div class="cap"><b>Capsule · blanc 62&nbsp;%</b>capsule-bg, texte #12100C. Sur fond clair&nbsp;: #F6D9C7 opaque ou blanc bordé.</div>
+    </div>
+    <div>
+      <div class="tile" style="background:var(--gradient-deck)"><div class="lay" style="background:var(--veil-ink-25)"></div><div class="ct"><div class="k">STRATÉGIE</div></div></div>
+      <div class="cap"><b>Voile sur dégradé · 25&nbsp;%</b>veil-ink-25&nbsp;: 3:1, grand titre blanc. 41&nbsp;% (veil-ink-41) pour un texte courant.</div>
+    </div>
+    <div>
+      <div class="tile" style="background:var(--gradient-deck)"><div class="circle"></div></div>
+      <div class="cap"><b>Cercle de couverture · blanc 51&nbsp;%</b>1&nbsp;240&nbsp;px de diamètre sur 1920 x 1080, aux trois quarts hors cadre.</div>
+    </div>
+    <div>
+      <div class="tile"><div class="ph"></div><div class="lay" style="background:var(--veil-ink-45)"></div>
+        <div class="ct"><div class="sig"><img class="sp" src="../assets/logos/spiral-white.png" alt=""><img class="wm" src="../assets/logos/wordmark-white.png" alt="SKISS"></div></div></div>
+      <div class="cap"><b>Voile sur photo · 45&nbsp;% au moins</b>veil-ink-45&nbsp;: sous un logo ou un grand titre blancs.</div>
+    </div>
+    <div>
+      <div class="tile"><div class="ph"></div><div class="lay" style="background:var(--veil-ink-58)"></div>
+        <div class="ct"><div class="k" style="font-weight:700">Aftermovie</div><div class="w">Wilmeyer · tournoi de padel 2024</div></div></div>
+      <div class="cap"><b>Voile sur photo · 58&nbsp;% au moins</b>veil-ink-58&nbsp;: sous du texte courant blanc (calcul sur un blanc pur).</div>
+    </div>
+    <div>
+      <div class="tile" style="box-shadow:inset 0 0 0 1px var(--ink-o14)">
+        <div class="mini">
+          <div class="row"><div class="bx" style="box-shadow:inset 0 0 0 1px var(--ink-o14)"></div>ink-o14&nbsp;: bordure</div>
+          <div class="row"><div class="bx" style="background:var(--ink-o72)"></div>ink-o72&nbsp;: texte secondaire</div>
+          <div class="row"><div class="bx" style="background:var(--dark-800);box-shadow:inset 0 0 0 1px var(--orange-o30)"></div>orange-o30&nbsp;: bordure au survol, sombre</div>
+        </div>
+      </div>
+      <div class="cap"><b>Fonds clair et sombre</b>Encre à 14&nbsp;% et 72&nbsp;%&nbsp;: propositions. Orange à 30&nbsp;%&nbsp;: carte au survol.</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

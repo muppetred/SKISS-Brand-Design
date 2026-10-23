@@ -1,0 +1,56 @@
+<!-- @dsCard group="Couleurs" viewport="700x472" name="Contrastes" subtitle="Paires autorisées et interdites, ratios mesurés" -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--white); color: var(--ink); font-family: var(--font-sans); font-size: 11.5px; line-height: 1.3; }
+  .card { width: 700px; padding: 16px 24px 18px; }
+  .head { font-size: 11px; color: var(--ink-o72); margin-bottom: 10px; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .lbl { font-weight: var(--fw-bold); font-size: 10.5px; letter-spacing: var(--tracking-label); text-transform: uppercase; margin-bottom: 6px; padding-bottom: 5px; border-bottom: 2px solid var(--ink); }
+  .no .lbl { color: var(--orange-burnt); border-color: var(--orange-burnt); }
+  .r { display: grid; grid-template-columns: 50px 1fr auto; gap: 9px; align-items: center; padding: 4px 0; border-bottom: 1px solid var(--ink-o14); min-height: 33px; }
+  .c { height: 25px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: var(--fw-bold); font-size: 16px; }
+  .c.line { box-shadow: inset 0 0 0 1px var(--ink-o14); }
+  .ratio { font-weight: var(--fw-bold); text-align: right; white-space: nowrap; }
+  .d small { display: block; color: var(--ink-o72); font-size: 10.5px; }
+  .no .c { position: relative; }
+  .no .c::after { content: ""; position: absolute; left: 4px; right: 4px; top: 50%; border-top: 2px solid var(--orange-burnt); transform: rotate(-24deg); }
+  .no .c.dk::after { border-color: var(--peach); }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="head">Seuils WCAG&nbsp;: 4,5:1 pour le texte courant&#8239;; 3:1 pour le grand texte (24&nbsp;px et plus, ou 18,66&nbsp;px en gras), les pictogrammes et le focus.</div>
+  <div class="cols">
+    <div>
+      <div class="lbl">Autorisé</div>
+      <div class="r"><div class="c" style="background:var(--gradient-deck);color:var(--ink)">Aa</div><div class="d">#12100C sur dégradé deck<small>4,5:1 au moins jusqu’à x = 1&nbsp;626&nbsp;px</small></div><div class="ratio">10,29 à ≈ 7:1</div></div>
+      <div class="r"><div class="c" style="background:var(--orange-burnt);color:var(--white)">Aa</div><div class="d">Blanc sur #B45311<small>toute taille</small></div><div class="ratio">5,02:1</div></div>
+      <div class="r"><div class="c" style="background:var(--orange-burnt-2);color:var(--white)">Aa</div><div class="d">Blanc sur #BD5713<small>toute taille</small></div><div class="ratio">4,63:1</div></div>
+      <div class="r"><div class="c" style="background:var(--orange-deep);color:var(--white)">Aa</div><div class="d">Blanc sur #D56C25<small>grand texte seulement</small></div><div class="ratio">3,50:1</div></div>
+      <div class="r"><div class="c line" style="background:var(--white);color:var(--orange-burnt)">Aa</div><div class="d">#B45311 sur blanc<small>seul petit texte orange (ou #BD5713, 4,63:1)</small></div><div class="ratio">5,02:1</div></div>
+      <div class="r"><div class="c" style="background:var(--orange);color:var(--ink)">Aa</div><div class="d">#12100C sur #ED7D31<small>bouton plein</small></div><div class="ratio">6,86:1</div></div>
+      <div class="r"><div class="c" style="background:var(--cream);color:var(--ink)">Aa</div><div class="d">#12100C sur capsules et cartes claires</div><div class="ratio">10,8 à 14,2:1</div></div>
+      <div class="r"><div class="c" style="background:var(--orange-burnt);color:var(--ink)">Aa</div><div class="d">#12100C sur #B45311<small>grand texte seulement (chiffres de cartes)</small></div><div class="ratio">3,79:1</div></div>
+      <div class="r"><div class="c" style="background:var(--dark-900);color:var(--orange)">Aa</div><div class="d">#ED7D31 sur #12100C<small>et #F3AA77 (9,80:1)</small></div><div class="ratio">6,86:1</div></div>
+      <div class="r"><div class="c" style="background:var(--dark-900);color:var(--dark-text)">Aa</div><div class="d">#EFECE7 sur #12100C<small>et #989081 (6,01:1)</small></div><div class="ratio">16,13:1</div></div>
+    </div>
+    <div class="no">
+      <div class="lbl">Interdit</div>
+      <div class="r"><div class="c" style="background:var(--orange);color:var(--white)">Aa</div><div class="d">Blanc sur #ED7D31<small>à toute taille</small></div><div class="ratio">2,77:1</div></div>
+      <div class="r"><div class="c" style="background:var(--gradient-deck);color:var(--white)">Aa</div><div class="d">Blanc sur dégradé deck sans voile<small>à gauche, puis au centre</small></div><div class="ratio">1,85 à 2,69:1</div></div>
+      <div class="r"><div class="c" style="background:var(--orange-light);color:var(--white)">Aa</div><div class="d">Blanc sur #EC8B48, #F18E4B, #F3AA77<small>et ces oranges en texte sur blanc</small></div><div class="ratio">2,51 à 1,94:1</div></div>
+      <div class="r"><div class="c" style="background:var(--gradient-deck)"><span style="background:var(--capsule-bg);color:var(--white);padding:0 6px;border-radius:var(--radius-pill)">Aa</span></div><div class="d">Blanc dans une capsule blanche<small>erreur du deck 2024</small></div><div class="ratio">1,34 à 1,76:1</div></div>
+      <div class="r"><div class="c" style="background:var(--cream);color:var(--orange-burnt)">Aa</div><div class="d">#B45311 sur #F6D9C7<small>écrire en #12100C</small></div><div class="ratio">3,74:1</div></div>
+      <div class="r"><div class="c dk" style="background:var(--dark-900);color:var(--orange-burnt)">Aa</div><div class="d">#B45311 en texte courant sur #12100C<small>#B0500F&nbsp;: 3,62:1</small></div><div class="ratio">3,79:1</div></div>
+      <div class="r"><div class="c" style="background:#F49A66;color:var(--white)">Aa</div><div class="d">Blanc au centre du dégradé social</div><div class="ratio">2,17:1</div></div>
+      <div class="r"><div class="c" style="background:#E7DDD7;color:var(--white)">Aa</div><div class="d">Signature blanche en bas à droite du dégradé social</div><div class="ratio">1,34:1</div></div>
+      <div class="r"><div class="c dk" style="background:var(--dark-900);color:var(--black)">Aa</div><div class="d">Logo noir sur #12100C<small>messagerie en mode sombre</small></div><div class="ratio">1,11:1</div></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

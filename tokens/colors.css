@@ -1,0 +1,199 @@
+/* SKISS : couleurs.
+   Source : brief SKISS du 13/10/2026 (uploads/skiss-brand-brief-2026-10-13.md).
+   Valeurs mesurées dans le deck orange 2024, les posts Canva et le site, sauf mention « proposition ».
+   Une seule famille chromatique : l'orange. Pas de violet, pas de deuxième teinte. */
+
+:root {
+  /* Orange SKISS, du plus foncé au plus clair */
+  --orange-burnt: #B45311;     /* aplat orange dominant du deck ; seul orange pour du petit texte sur blanc (5,02:1) */
+  --orange-burnt-2: #BD5713;   /* pas intermédiaire des chevrons (4,63:1 avec blanc) */
+  --orange-deep: #D56C25;      /* 2e nuance : disques, chevrons ; blanc en grand texte seulement (3,50:1) */
+  --orange: #ED7D31;           /* accent (proposition) : bouton, focus sur fond sombre. Jamais de texte blanc dessus (2,77:1) */
+  --orange-light-2: #EC8B48;   /* pas intermédiaire des chevrons */
+  --orange-light: #F18E4B;     /* 3e nuance */
+  --peach: #F3AA77;            /* 4e nuance, la plus claire */
+  --sand: #F4B081;             /* arrêt de dégradé seulement */
+  --cream: #F6D9C7;            /* panneaux et cartes claires */
+  --white: #FFFFFF;
+  --ink: #12100C;              /* texte foncé (proposition : brun-noir chaud du site) */
+  --black: #000000;            /* logo noir uniquement */
+
+  /* Variante sombre chaude (site 2026) */
+  --dark-900: #12100C;
+  --dark-800: #1C1A17;
+  --dark-700: #272520;
+  --dark-600: #322F2A;
+  --dark-text: #EFECE7;
+  --dark-muted: #989081;
+  --dark-cream: #EDE8DE;
+
+  /* Formes du dégradé social (posts Instagram) */
+  --shape-1: #F7C3A5;
+  --shape-2: #F5D2BD;
+  --shape-3: #F3DED1;
+
+  /* Transparences et voiles */
+  --capsule-bg: rgb(255 255 255 / 0.62);          /* une seule transparence pour capsules et cartes sur dégradé */
+  --cover-circle: rgb(255 255 255 / 0.51);        /* cercle hors cadre de la couverture (p1), décor sans texte */
+  --veil-ink-25: rgb(18 16 12 / 0.25);            /* voile minimal sous un grand titre blanc sur dégradé (3:1) */
+  --veil-ink-41: rgb(18 16 12 / 0.41);            /* voile pour texte blanc courant sur dégradé (4,5:1) */
+  --veil-ink-45: rgb(18 16 12 / 0.45);            /* voile minimal sous logo ou grand titre sur photo */
+  --veil-ink-58: rgb(18 16 12 / 0.58);            /* voile minimal sous texte courant sur photo */
+  --ink-o14: rgb(18 16 12 / 0.14);                /* bordure sur fond clair (proposition) */
+  --ink-o72: rgb(18 16 12 / 0.72);                /* texte secondaire sur fond clair (proposition) */
+  --orange-o30: rgb(237 125 49 / 0.30);           /* bordure de carte au survol, fond sombre */
+
+  /* Dégradés */
+  --gradient-deck: linear-gradient(90deg, #F4B081 0%, #ED7F36 52%, #B0500F 100%);
+  --gradient-deck-start: linear-gradient(90deg, #F4B081 0%, #ED7F36 100%);   /* premier segment : boutons, mot accent */
+  --gradient-social: linear-gradient(135deg, #020101 0%, #F49A66 50%, #E7DDD7 100%);
+
+  /* Sémantique, thème clair (par défaut) */
+  --background: var(--white);
+  --surface: var(--white);
+  --surface-soft: var(--cream);
+  --text: var(--ink);
+  --text-muted: var(--ink-o72);
+  --heading-accent: var(--orange-burnt);
+  --border: var(--ink-o14);
+  --link: var(--orange-burnt);
+  --link-hover: var(--ink);
+  --selection-bg: var(--orange);
+  --selection-text: var(--ink);
+  --btn-primary-bg: var(--orange);
+  --btn-primary-text: var(--ink);                 /* 6,86:1 */
+  --btn-secondary-bg: transparent;
+  --btn-secondary-border: var(--ink);
+  --btn-secondary-text: var(--ink);
+  --btn-secondary-bg-hover: var(--cream);
+  --ring: var(--orange-burnt);                    /* anneau de focus 2 px ; sur blanc, l'orange vif ne passe pas 3:1 */
+  --logo-tone: black;
+
+  /* Rayons */
+  --radius-pill: 999px;
+  --radius-card: 16px;          /* cartes web (site) */
+  --radius-field: 12px;         /* champs web (site) */
+  --radius-card-slide: 46px;    /* cartes sur 1920 x 1080 (tuiles du deck) */
+}
+
+/* Thème clair explicite : les tokens de :root, pour un bloc clair posé dans un parent sombre ou en dégradé */
+.theme-light {
+  --background: var(--white);
+  --surface: var(--white);
+  --surface-soft: var(--cream);
+  --text: var(--ink);
+  --text-muted: var(--ink-o72);
+  --heading-accent: var(--orange-burnt);
+  --border: var(--ink-o14);
+  --link: var(--orange-burnt);
+  --link-hover: var(--ink);
+  --btn-primary-bg: var(--orange);
+  --btn-primary-text: var(--ink);
+  --btn-secondary-bg: transparent;
+  --btn-secondary-border: var(--ink);
+  --btn-secondary-text: var(--ink);
+  --btn-secondary-bg-hover: var(--cream);
+  --ring: var(--orange-burnt);
+  --logo-tone: black;
+}
+
+/* Thème sombre chaud : site, écrans sombres */
+.theme-dark {
+  --background: var(--dark-900);
+  --surface: var(--dark-800);
+  --surface-soft: var(--dark-700);
+  --text: var(--dark-text);
+  --text-muted: var(--dark-muted);
+  --heading-accent: var(--orange);
+  --border: var(--dark-600);
+  --link: var(--orange);
+  --link-hover: var(--dark-text);
+  --btn-primary-bg: var(--orange);
+  --btn-primary-text: var(--ink);
+  --btn-secondary-border: var(--dark-600);
+  --btn-secondary-text: var(--dark-text);
+  --btn-secondary-bg-hover: var(--dark-700);
+  --ring: var(--orange);                          /* 6,86:1 sur #12100C */
+  --logo-tone: white;
+}
+
+/* Thème dégradé deck : slides, bandeaux. Texte en encre, capsules blanches translucides. */
+.theme-gradient {
+  --background: var(--gradient-deck);
+  --surface: var(--capsule-bg);
+  --surface-soft: var(--capsule-bg);
+  --text: var(--ink);
+  --text-muted: var(--ink);
+  --heading-accent: var(--ink);
+  --border: rgb(255 255 255 / 0.62);
+  --link: var(--ink);
+  --link-hover: var(--ink);
+  --btn-primary-bg: var(--ink);
+  --btn-primary-text: var(--white);
+  --btn-secondary-border: var(--ink);
+  --btn-secondary-text: var(--ink);
+  --btn-secondary-bg-hover: var(--capsule-bg);
+  --ring: var(--ink);
+  --logo-tone: white;
+}
+
+/* Thème aplat brûlé : seul fond orange qui porte du texte blanc courant (5,02:1). */
+.theme-burnt {
+  --background: var(--orange-burnt);
+  --surface: var(--orange-burnt-2);
+  --surface-soft: var(--orange-burnt-2);             /* 4,63:1 avec le blanc ; #D56C25 ne passe qu'en grand texte */
+  --text: var(--white);
+  --text-muted: var(--white);
+  --heading-accent: var(--white);
+  --border: rgb(255 255 255 / 0.35);
+  --link: var(--white);
+  --link-hover: var(--cream);
+  --btn-primary-bg: var(--white);
+  --btn-primary-text: var(--orange-burnt);
+  --btn-secondary-border: var(--white);
+  --btn-secondary-text: var(--white);
+  --btn-secondary-bg-hover: rgb(255 255 255 / 0.12);
+  --ring: var(--white);
+  --logo-tone: white;
+}
+
+/* Thème social : posts Instagram et reels. Texte en encre dans la moitié claire. */
+.theme-social {
+  --background: var(--gradient-social);
+  --surface: var(--capsule-bg);
+  --surface-soft: var(--shape-2);
+  --text: var(--ink);
+  --text-muted: var(--ink);
+  --heading-accent: var(--ink);
+  --border: rgb(18 16 12 / 0.2);
+  --link: var(--ink);
+  --link-hover: var(--ink);
+  --btn-primary-bg: var(--ink);
+  --btn-primary-text: var(--white);
+  --btn-secondary-border: var(--ink);
+  --btn-secondary-text: var(--ink);
+  --btn-secondary-bg-hover: var(--capsule-bg);
+  --ring: var(--ink);
+  --logo-tone: black;
+}
+
+/* Thème crème : posts et pages claires */
+.theme-cream {
+  --background: var(--cream);
+  --surface: var(--white);
+  --surface-soft: var(--white);
+  --text: var(--ink);
+  --text-muted: var(--ink-o72);
+  --heading-accent: var(--ink);                   /* #B45311 tombe à 3,74:1 sur crème */
+  --border: var(--ink-o14);
+  --link: var(--ink);
+  --link-hover: var(--orange-burnt);
+  --btn-primary-bg: var(--orange);
+  --btn-primary-text: var(--ink);                 /* 6,86:1 */
+  --btn-secondary-bg: transparent;
+  --btn-secondary-border: var(--ink);
+  --btn-secondary-text: var(--ink);
+  --btn-secondary-bg-hover: var(--white);
+  --ring: var(--orange-burnt);
+  --logo-tone: black;
+}

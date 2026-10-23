@@ -1,0 +1,87 @@
+<!-- @dsCard group="Couleurs" viewport="700x400" name="Texte sur les dégradés" subtitle="Encre par défaut, blanc seulement là où il passe" -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--white); color: var(--ink); font-family: var(--font-sans); font-size: 12px; line-height: 1.35; }
+  .card { width: 700px; padding: 18px 24px 20px; display: grid; grid-template-columns: 420px 1fr; gap: 24px; }
+  .lbl { font-weight: var(--fw-bold); font-size: 10.5px; letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--orange-burnt); margin-bottom: 8px; }
+  .bar { position: relative; height: 66px; border-radius: 10px; background: var(--gradient-deck); }
+  .s { position: absolute; top: 8px; display: flex; flex-direction: column; line-height: 1.1; }
+  .s b { font-family: var(--font-display); font-size: 30px; font-weight: var(--fw-bold); }
+  .s span { font-size: 11px; font-weight: var(--fw-bold); }
+  .ranges { margin-top: 10px; display: flex; flex-direction: column; gap: 6px; }
+  .rg { font-size: 11px; }
+  .track { position: relative; height: 8px; border-radius: 4px; background: var(--dark-cream); margin-top: 3px; }
+  .fill { position: absolute; top: 0; bottom: 0; border-radius: 4px; }
+  .veils { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+  .vt { position: relative; height: 62px; border-radius: 10px; background: var(--gradient-deck); display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); }
+  .vt .in { position: relative; }
+  .vt::before { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+  .v25::before { background: var(--veil-ink-25); }
+  .v41::before { background: var(--veil-ink-41); }
+  .big { font-family: var(--font-display); font-size: 30px; line-height: 1; }
+  .cap { font-size: 11px; margin-top: 4px; }
+  .post { position: relative; width: 168px; height: 210px; border-radius: 8px; background: var(--gradient-social); }
+  .post svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .aa { position: absolute; font-family: var(--font-display); font-weight: var(--fw-bold); font-size: 22px; line-height: 1; }
+  .sig { position: absolute; right: 8px; bottom: 8px; border: 1px dashed var(--ink); border-radius: 4px; font-size: 9.5px; font-weight: var(--fw-bold); padding: 2px 5px; }
+  .leg { margin-top: 8px; display: flex; flex-direction: column; gap: 4px; font-size: 11px; }
+  .leg i { display: inline-block; width: 26px; height: 12px; border-radius: 3px; vertical-align: -2px; margin-right: 6px; position: relative; }
+  .leg i::after { content: ""; position: absolute; left: 3px; right: 3px; top: 5px; border-top: 2px dashed; }
+  .leg i.w { background: var(--ink); color: var(--white); }
+  .leg i.thin::after { border-top-width: 1px; }
+  .leg i.k { background: var(--peach); color: var(--ink); }
+  .note { font-size: 11px; margin-top: 6px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div>
+    <div class="lbl">Dégradé deck, sur 1920&nbsp;px de large</div>
+    <div class="bar">
+      <div class="s" style="left:12px;color:var(--ink)"><b>Aa</b><span>10,29:1</span></div>
+      <div class="s" style="left:190px;color:var(--ink)"><b>Aa</b><span>≈ 7:1</span></div>
+      <div class="s" style="right:10px;color:var(--white);align-items:flex-end"><b>Aa</b><span>5,25:1</span></div>
+    </div>
+    <div class="ranges">
+      <div class="rg"><b>#12100C, texte courant</b>&nbsp;: 4,5:1 au moins de x = 0 à x = 1&nbsp;626&nbsp;px
+        <div class="track"><div class="fill" style="left:0;width:84.7%;background:var(--ink)"></div></div></div>
+      <div class="rg"><b>Blanc, grand texte</b>&nbsp;: au-delà de x = 1&nbsp;142&nbsp;px
+        <div class="track"><div class="fill" style="left:59.5%;right:0;background:var(--orange-burnt)"></div></div></div>
+      <div class="rg"><b>Blanc, texte courant</b>&nbsp;: au-delà de x = 1&nbsp;715&nbsp;px
+        <div class="track"><div class="fill" style="left:89.3%;right:0;background:var(--orange-burnt)"></div></div></div>
+    </div>
+    <div class="veils">
+      <div><div class="vt v25"><div class="in big">On en parle&#8239;?</div></div>
+        <div class="cap"><b>Voile #12100C 25&nbsp;%</b>&nbsp;: 3:1 au bord le plus clair, grand titre blanc centré.</div></div>
+      <div><div class="vt v41"><div class="in">Rien ne se lance sans tracking.</div></div>
+        <div class="cap"><b>Voile #12100C 41&nbsp;%</b>&nbsp;: 4,5:1, texte blanc courant.</div></div>
+    </div>
+    <div class="note">Sans voile, le blanc tombe à 1,85:1 à gauche et 2,69:1 au centre.</div>
+  </div>
+  <div>
+    <div class="lbl">Dégradé social, 1080 x 1350</div>
+    <div class="post">
+      <svg viewBox="0 0 1080 1350" preserveAspectRatio="none" aria-hidden="true">
+        <polygon points="0,0 821,0 0,821" style="fill:var(--white)" fill-opacity="0.10"/>
+        <line x1="821" y1="0" x2="0" y2="821" style="stroke:var(--white)" stroke-width="7" stroke-dasharray="26 18"/>
+        <line x1="1030" y1="0" x2="0" y2="1030" style="stroke:var(--white)" stroke-width="4" stroke-dasharray="10 14"/>
+        <line x1="1080" y1="-227" x2="0" y2="853" style="stroke:var(--ink)" stroke-width="7" stroke-dasharray="26 18"/>
+      </svg>
+      <div class="aa" style="left:10px;top:10px;color:var(--white)">Aa</div>
+      <div class="aa" style="right:12px;top:118px;color:var(--ink)">Aa</div>
+      <div class="sig">signature noire</div>
+    </div>
+    <div class="leg">
+      <div><i class="w"></i>Blanc&nbsp;: x + y ≤ 821&nbsp;px</div>
+      <div><i class="w thin"></i>Blanc, grand titre&nbsp;: ≤ 1&nbsp;030&nbsp;px</div>
+      <div><i class="k"></i>#12100C&nbsp;: dès x + y = 853&nbsp;px</div>
+    </div>
+    <div class="note">Au centre, le blanc tombe à 2,17:1. Signature noire en bas à droite (15,72:1&#8239;; blanche&nbsp;: 1,34:1).</div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!-- @dsCard group="Composants" viewport="1600x1160" name="Composants de marque" subtitle="Logo, signature, sections à thème et mot accent" -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; }
+  body { background: var(--white); font-family: var(--font-sans); }
+  #root { height: 100%; display: grid; grid-template-rows: 640px 520px; }
+  .logos { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .logo-panel { padding: 24px; display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+  .caption { margin: 0; font-size: 13px; line-height: 1.3; color: var(--text-muted); }
+  .caption b { color: var(--text); }
+  .line { display: flex; align-items: flex-end; gap: 24px; }
+  .line.center { align-items: center; }
+  .themes { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); }
+  .theme-box { padding: 28px 32px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+  .theme-title { margin: 0; font-family: var(--font-display); font-weight: var(--fw-bold); font-size: 34px; line-height: var(--leading-tight); text-wrap: balance; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="../../_ds_bundle.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel">
+    // Le nom exact de l'espace de noms est fixé par Claude Design au moment de la compilation : on le cherche.
+    const DS = window[Object.keys(window).find((k) => /DesignSystem_/.test(k))];
+    const { Logo, Signature, ThemeSection, AccentWord, Eyebrow, Button } = DS;
+
+    // Logos à leur taille minimale d'usage à l'écran (vertical 230 px de large, horizontal 325 px, ampoule 155 px de haut).
+    function LogoPanel({ theme, name, tone }) {
+      return (
+        <ThemeSection as="div" theme={theme} className="logo-panel">
+          <p className="caption"><b>{name}</b> · logo {tone === "white" ? "blanc" : "noir"}</p>
+          <div className="line">
+            <Logo variant="vertical" tone={tone} />
+            <Logo variant="bulb" tone={tone} />
+          </div>
+          <Logo variant="horizontal" tone={tone} />
+          <div className="line center">
+            <Signature tone={tone} />
+            <Logo variant="spiral" tone={tone} />
+          </div>
+          <div className="line center">
+            <Logo variant="wordmark" tone={tone} height={28} />
+            <Logo variant="baseline" tone={tone} height={10} />
+          </div>
+        </ThemeSection>
+      );
+    }
+
+    function App() {
+      return (
+        <>
+          <div className="logos">
+            <LogoPanel theme="light" name="Clair" tone="black" />
+            <LogoPanel theme="dark" name="Sombre" tone="white" />
+            <LogoPanel theme="gradient" name="Dégradé deck" tone="white" />
+            <LogoPanel theme="burnt" name="Brûlé" tone="white" />
+          </div>
+          <div className="themes">
+            <ThemeSection as="div" theme="light" className="theme-box">
+              <Eyebrow>Thème clair</Eyebrow>
+              <p className="theme-title">Trois blocs, trois prix, zéro surprise.</p>
+              <div className="actions">
+                <Button>Lancer votre projet</Button>
+                <Button variant="secondary">Voir nos réalisations</Button>
+              </div>
+            </ThemeSection>
+            <ThemeSection as="div" theme="dark" className="theme-box">
+              <Eyebrow>Thème sombre</Eyebrow>
+              <p className="theme-title">On crée des histoires qui <AccentWord>convertissent</AccentWord></p>
+              <div className="actions">
+                <Button variant="gradient">Lancer votre projet</Button>
+                <Button variant="secondary">Voir nos réalisations</Button>
+              </div>
+            </ThemeSection>
+            <ThemeSection as="div" theme="gradient" className="theme-box">
+              <Eyebrow>Thème dégradé deck</Eyebrow>
+              <p className="theme-title">Un compte publicitaire se pilote dans cet ordre</p>
+              <div className="actions">
+                <Button>Lancer votre projet</Button>
+              </div>
+            </ThemeSection>
+            <ThemeSection as="div" theme="burnt" className="theme-box">
+              <Eyebrow>Thème brûlé</Eyebrow>
+              <p className="theme-title">L’IA comme méthode, pas comme gadget.</p>
+              <div className="actions">
+                <Button>{"On en parle ?"}</Button>
+              </div>
+            </ThemeSection>
+            {/* Dégradé social : blanc seulement dans le coin sombre en haut à gauche, encre dans la moitié claire. */}
+            <ThemeSection as="div" theme="social" className="theme-box" style={{ alignItems: "flex-end", textAlign: "right" }}>
+              <Eyebrow style={{ alignSelf: "flex-start", color: "var(--white)" }}>Thème social</Eyebrow>
+              <p className="theme-title" style={{ marginTop: "auto", maxWidth: 260 }}>Rien ne se lance sans tracking.</p>
+              <div className="actions" style={{ marginTop: 0 }}>
+                <Button>Voir nos réalisations</Button>
+              </div>
+            </ThemeSection>
+            <ThemeSection as="div" theme="cream" className="theme-box">
+              <Eyebrow>Thème crème</Eyebrow>
+              <p className="theme-title">Le prix ne change pas par remise&nbsp;: il change parce que le périmètre change.</p>
+              <div className="actions">
+                <Button>Commencer</Button>
+              </div>
+            </ThemeSection>
+          </div>
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
+</html>

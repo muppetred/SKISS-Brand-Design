@@ -1,0 +1,49 @@
+<!-- @dsCard group="Espacements" viewport="700x330" name="Rayons" subtitle="Pilule et 46 px pour les formats, 16 et 12 px pour le web" -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--white); color: var(--ink); font-family: var(--font-sans); font-size: 11.5px; line-height: 1.3; }
+  .card { width: 700px; padding: 16px 24px 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .lbl { font-weight: var(--fw-bold); font-size: 10.5px; letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--orange-burnt); margin-bottom: 10px; }
+  .it { display: grid; grid-template-columns: 1fr 112px; gap: 12px; align-items: center; margin-bottom: 10px; }
+  .it b { display: block; font-size: 12px; }
+  .it span { color: var(--ink-o72); font-size: 11px; }
+  .row { display: flex; gap: 10px; align-items: center; }
+  .caps { white-space: nowrap; height: 34px; border-radius: var(--radius-pill); background: var(--cream); display: flex; align-items: center; justify-content: center; font-weight: var(--fw-bold); font-size: 12px; padding: 0 16px; }
+  .btn { height: 32px; border-radius: var(--radius-pill); background: var(--orange); color: var(--ink); font-weight: var(--fw-bold); font-size: 12px; padding: 0 16px; display: inline-flex; align-items: center; }
+  .tagp { white-space: nowrap; height: 22px; border-radius: var(--radius-pill); border: 1px solid var(--ink); font-size: 10.5px; font-weight: var(--fw-bold); padding: 0 10px; display: inline-flex; align-items: center; }
+  .num { width: 48px; height: 104px; border-radius: var(--radius-pill); background: var(--cream); display: flex; justify-content: center; padding-top: 4px; }
+  .num i { width: 40px; height: 40px; border-radius: 50%; background: var(--orange-burnt); display: block; }
+  .scard { width: 130px; height: 88px; border-radius: 11.5px; background: var(--cream); }
+  .wcard { width: 112px; height: 64px; border-radius: var(--radius-card); background: var(--dark-800); box-shadow: inset 0 0 0 1px var(--dark-600); }
+  .field { width: 112px; height: 38px; border-radius: var(--radius-field); border: 1px solid var(--orange); background: var(--dark-900); color: var(--dark-muted); font-size: 11px; display: flex; align-items: center; padding: 0 10px; }
+  .dark { background: var(--dark-900); border-radius: var(--radius-card); padding: 12px; display: flex; gap: 10px; align-items: center; }
+  .note { font-size: 11px; color: var(--ink-o72); margin-top: 4px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div>
+    <div class="lbl">Slides, posts, documents</div>
+    <div class="it"><div><b>Pilule · moitié du petit côté</b><span>radius-pill&nbsp;: capsules, boutons, étiquettes, cartes numérotées.</span></div>
+      <div class="num"><i></i></div></div>
+    <div class="row" style="margin:-2px 0 14px"><div class="caps">On pilote dans la durée</div><span class="tagp">Meta &amp; Google</span></div>
+    <div class="it"><div><b>46&nbsp;px · cartes sur 1920 x 1080</b><span>radius-card-slide, le rayon des tuiles du deck. Aperçu à 25&nbsp;%.</span></div>
+      <div class="scard"></div></div>
+  </div>
+  <div>
+    <div class="lbl">Web</div>
+    <div class="it"><div><b>16&nbsp;px · cartes</b><span>radius-card, carte #1C1A17 bordée de #322F2A.</span></div>
+      <div class="wcard"></div></div>
+    <div class="it"><div><b>12&nbsp;px · champs</b><span>radius-field, bordure orange au focus.</span></div>
+      <div class="field">[Champ]</div></div>
+    <div class="it"><div><b>Pilule · boutons</b><span>Comme sur les slides.</span></div>
+      <div><span class="btn">Commencer</span></div></div>
+    <div class="note">Deux rayons par support, une seule transparence. Ombre très douce ou aucune.</div>
+  </div>
+</div>
+</body>
+</html>

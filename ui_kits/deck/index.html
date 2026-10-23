@@ -1,0 +1,124 @@
+<!-- @dsCard group="Deck 16:9" viewport="1280x720" name="Deck de proposition" subtitle="Visionneuse 16:9 : dix slides, flèches du clavier ou boutons" -->
+<!-- @startingPoint section="Deck 16:9" subtitle="Deck de proposition SKISS, 1920 x 1080, slide par slide" viewport="1280x720" -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SKISS · Deck de proposition</title>
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  html, body { height: 100%; }
+  body { margin: 0; overflow: hidden; background: var(--background); color: var(--text); font-family: var(--font-sans); }
+  #root { height: 100%; }
+  .viewer { display: flex; flex-direction: column; height: 100%; }
+  .stage { flex: 1 1 auto; min-height: 0; padding: 24px 24px 12px; }
+  .fit { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+  .slide { flex: none; border-radius: 8px; overflow: hidden; outline: 1px solid var(--border); }
+  .bar { flex: none; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: var(--space-4);
+    height: 64px; padding: 0 24px 12px; }
+  .label { margin: 0; font-size: var(--text-small); color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .controls { display: flex; align-items: center; gap: var(--space-3); }
+  .count { min-width: 5.5em; text-align: center; font-weight: var(--fw-bold); font-size: var(--text-small); font-variant-numeric: tabular-nums; }
+  .hint { margin: 0; justify-self: end; max-width: 100%; font-size: var(--text-small); color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  @media (max-width: 720px) { .hint, .label { display: none; } .bar { grid-template-columns: 1fr; justify-items: center; padding: 0 12px 12px; } .controls { gap: var(--space-2); } }
+</style>
+</head>
+<body class="theme-dark">
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script>
+  // Le nom exact de l'espace de noms est fixé par Claude Design à la compilation : on le cherche une seule fois ici.
+  window.SKDS = window[Object.keys(window).find(function (k) { return /DesignSystem_/.test(k); })];
+</script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" data-presets="react" src="DeckParts.jsx"></script>
+<script type="text/babel" data-presets="react" src="SlideCover.jsx"></script>
+<script type="text/babel" data-presets="react" src="SlideSection.jsx"></script>
+<script type="text/babel" data-presets="react" src="SlideCapsules.jsx"></script>
+<script type="text/babel" data-presets="react" src="SlideSteps.jsx"></script>
+<script type="text/babel" data-presets="react" src="SlideChevrons.jsx"></script>
+<script type="text/babel" data-presets="react" src="SlideFigures.jsx"></script>
+<script type="text/babel" data-presets="react" src="SlidePricing.jsx"></script>
+<script type="text/babel" data-presets="react" src="SlideTeam.jsx"></script>
+<script type="text/babel" data-presets="react" src="SlideQuote.jsx"></script>
+<script type="text/babel" data-presets="react" src="SlideEnd.jsx"></script>
+<script type="text/babel" data-presets="react" src="Deck.jsx"></script>
+<script type="text/babel" data-presets="react">
+  // Visionneuse : une slide à la fois, mise à l'échelle pour tenir dans la fenêtre (largeur et hauteur).
+  // Clavier : flèches gauche et droite, Page précédente et suivante, Début et Fin. ?slide=N ouvre la slide N.
+  function DeckIcon({ dir }) {
+    // Lucide chevron-left / chevron-right, trait par défaut.
+    return (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+        strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ display: "block" }}>
+        <path d={dir === "prev" ? "m15 18-6-6 6-6" : "m9 18 6-6-6-6"} />
+      </svg>
+    );
+  }
+
+  function DeckViewer() {
+    const { Button } = window.SKDS;
+    const slides = window.SKISS_DECK_SLIDES;
+    const last = slides.length - 1;
+    const clamp = (n) => Math.min(last, Math.max(0, n));
+    const [index, setIndex] = React.useState(() => {
+      const n = parseInt(new URLSearchParams(window.location.search).get("slide"), 10);
+      return Number.isFinite(n) ? clamp(n - 1) : 0;
+    });
+    const fitRef = React.useRef(null);
+    const [scale, setScale] = React.useState(0);
+
+    React.useLayoutEffect(() => {
+      const el = fitRef.current;
+      const update = () => setScale(Math.min(el.clientWidth / 1920, el.clientHeight / 1080));
+      update();
+      const ro = new ResizeObserver(update);
+      ro.observe(el);
+      return () => ro.disconnect();
+    }, []);
+
+    React.useEffect(() => {
+      const onKey = (e) => {
+        if (e.altKey || e.ctrlKey || e.metaKey) return;
+        const moves = { ArrowRight: 1, PageDown: 1, ArrowLeft: -1, PageUp: -1 };
+        if (e.key in moves) { e.preventDefault(); setIndex((i) => clamp(i + moves[e.key])); }
+        else if (e.key === "Home") { e.preventDefault(); setIndex(0); }
+        else if (e.key === "End") { e.preventDefault(); setIndex(last); }
+      };
+      window.addEventListener("keydown", onKey);
+      return () => window.removeEventListener("keydown", onKey);
+    }, [last]);
+
+    const current = slides[index];
+    const Slide = current.Component;
+    const pad = (n) => String(n).padStart(2, "0");
+    return (
+      <main className="viewer" aria-roledescription="présentation" aria-label="Deck de proposition SKISS">
+        <div className="stage">
+          <div className="fit" ref={fitRef}>
+            {scale > 0 ? <div className="slide" aria-label={`Slide ${index + 1} sur ${slides.length}\u00A0: ${current.label}`}><Slide scale={scale} /></div> : null}
+          </div>
+        </div>
+        <nav className="bar" aria-label="Navigation entre les slides">
+          <p className="label" aria-live="polite">{current.label}</p>
+          <div className="controls">
+            <Button variant="secondary" size="sm" onClick={() => setIndex((i) => clamp(i - 1))} disabled={index === 0}
+              aria-label="Slide précédente"><DeckIcon dir="prev" />Précédente</Button>
+            <span className="count">{pad(index + 1)} / {pad(slides.length)}</span>
+            <Button variant="primary" size="sm" onClick={() => setIndex((i) => clamp(i + 1))} disabled={index === last}
+              aria-label="Slide suivante">Suivante<DeckIcon dir="next" /></Button>
+          </div>
+          <p className="hint">Flèches du clavier pour naviguer</p>
+        </nav>
+      </main>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById("root")).render(<DeckViewer />);
+</script>
+</body>
+</html>

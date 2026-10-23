@@ -1,0 +1,49 @@
+<!-- @dsCard group="Typographie" viewport="700x350" name="Khand, les titres" subtitle="Regular 400 et Bold 700, sans italique" -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--white); color: var(--ink); font-family: var(--font-sans); font-size: 12px; line-height: 1.35; }
+  .card { width: 700px; padding: 18px 24px 20px; display: grid; grid-template-columns: 1fr 210px; gap: 26px; }
+  .lbl { font-weight: var(--fw-bold); font-size: 10.5px; letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--orange-burnt); }
+  .k { font-family: var(--font-display); }
+  .name { font-family: var(--font-display); font-weight: var(--fw-bold); font-size: 56px; line-height: 0.9; }
+  .w { display: flex; flex-direction: column; gap: 2px; margin-top: 14px; }
+  .w .s400 { font-family: var(--font-display); font-weight: var(--fw-regular); font-size: 62px; line-height: 1; text-transform: uppercase; }
+  .w .s700 { font-family: var(--font-display); font-weight: var(--fw-bold); font-size: 30px; line-height: 1.1; }
+  .gl { font-family: var(--font-display); font-size: 20px; line-height: 1.25; margin-top: 10px; }
+  .gl b { font-weight: var(--fw-bold); }
+  .fig { font-family: var(--font-display); font-size: 40px; line-height: 1; margin-top: 8px; color: var(--orange-burnt); }
+  ul { margin: 8px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  li { padding-left: 12px; position: relative; font-size: 11.5px; }
+  li::before { content: ""; position: absolute; left: 0; top: 6px; width: 5px; height: 5px; border-radius: 50%; background: var(--orange-burnt); }
+</style>
+</head>
+<body>
+<div class="card">
+  <div>
+    <div class="name">Khand</div>
+    <div class="w">
+      <span class="lbl">Regular 400 · intercalaires et libellés en capitales</span>
+      <span class="s400">Stratégie</span>
+      <span class="lbl" style="margin-top:8px">Bold 700 · titres de page en casse de phrase</span>
+      <span class="s700">Un compte publicitaire se pilote dans cet ordre</span>
+    </div>
+    <div class="gl">ABCDEFGHIJKLMNOPQRSTUVWXYZ <b>ÀÂÉÈÊËÎÏÔÙÛÜÇ</b><br>abcdefghijklmnopqrstuvwxyz 0123456789&nbsp;€&nbsp;%</div>
+  </div>
+  <div>
+    <span class="lbl">Règles</span>
+    <ul>
+      <li>Famille des titres, des intercalaires, des chiffres et des citations (Google Fonts, celle du deck 2024).</li>
+      <li>Deux graisses seulement&nbsp;: 400 et 700. Aucune italique&nbsp;: le mot accent passe en Khand Bold rempli du dégradé deck.</li>
+      <li>Capitales pour les intercalaires et les libellés, accents compris.</li>
+      <li>Interlignage d’environ 1,2 (deck)&#8239;; 0,95 pour le H1 du site, à vérifier avec Khand.</li>
+      <li>Remplace Baumans pour les chiffres.</li>
+    </ul>
+    <div class="fig">1&nbsp;400&nbsp;€</div>
+  </div>
+</div>
+</body>
+</html>

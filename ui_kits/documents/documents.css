@@ -1,0 +1,107 @@
+/* SKISS, kit documents : one-pager de proposition A4 portrait (brief, écran 12).
+   Tailles en pt (échelle A4 des tokens, d'après le PDF des formules media buying), marges de 15 mm.
+   À l'écran, la page fait 210 x 297 mm (794 x 1123 px à 96 ppp) ; à l'impression, @page pose les marges. */
+
+@page { size: A4; margin: 15mm; }
+
+.doc-page {
+  /* Tailles locales du kit, sans source (proposition) : surtitre, titre de bloc, montant, petit texte */
+  --doc-eyebrow: 9pt;
+  --doc-block-title: 15pt;
+  --doc-amount: 22pt;
+  --doc-small: 9pt;
+
+  box-sizing: border-box;
+  width: 210mm;
+  height: 297mm;
+  padding: var(--a4-margin);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--a4-body);
+  line-height: 1.45;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.doc-head { display: flex; align-items: center; justify-content: space-between; }
+
+.doc-intro { margin-top: 44pt; }
+.doc-title {
+  margin: 8pt 0 0;
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--a4-title);
+  line-height: var(--leading-tight);
+  color: var(--ink);
+  text-wrap: balance;
+}
+.doc-lead {
+  margin: 12pt 0 0;
+  max-width: 158mm;
+  font-size: var(--a4-lead);
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+
+/* Bandeau en dégradé deck, cartes blanches à 62 % et texte encre (10,8 à 14,2:1) */
+.doc-band {
+  margin-top: 34pt;
+  padding: 12px;
+  border-radius: calc(var(--radius-card) + 12px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.doc-block { grid-template-columns: auto 1fr 50mm; align-items: center; column-gap: 15pt; }
+.doc-block-disc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34pt;
+  height: 34pt;
+  padding-top: 0.12em;               /* Khand porte ses capitales haut sur la ligne : recentrage optique */
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-weight: var(--fw-regular);
+  font-size: 22pt;
+  line-height: 1;
+  color: var(--ink);
+}
+.doc-block-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--doc-block-title);
+  line-height: var(--leading-deck);
+}
+.doc-block-text { margin: 3pt 0 0; font-size: var(--a4-body); line-height: 1.45; }
+.doc-block-price {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--doc-amount);
+  line-height: 1.1;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.doc-foot {
+  margin-top: auto;
+  padding-top: 10pt;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 3pt;
+}
+.doc-note { margin: 0; font-size: var(--doc-small); line-height: 1.4; color: var(--text-muted); }
+.doc-contact { margin: 0; font-size: var(--a4-body); font-weight: var(--fw-bold); line-height: 1.4; }
+.doc-nowrap { white-space: nowrap; }
+
+@media print {
+  html, body { width: auto; height: auto; overflow: visible; background: var(--white); }
+  .doc-page { width: auto; height: 267mm; padding: 0; }
+}

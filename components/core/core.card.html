@@ -1,0 +1,88 @@
+<!-- @dsCard group="Composants" viewport="1500x720" name="Composants de base" subtitle="Boutons, étiquettes, champs, surtitre et carte sur les thèmes clair, sombre et dégradé" -->
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; }
+  body { background: var(--white); font-family: var(--font-sans); }
+  #root { display: grid; grid-template-columns: repeat(3, 1fr); height: 100%; }
+  .panel { padding: 28px 32px; display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+  .theme-name { margin: 0; font-size: 13px; line-height: 1.3; color: var(--text-muted); }
+  .theme-name code { font-family: inherit; font-weight: var(--fw-bold); color: var(--text); }
+  .row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+  .row.variants { min-height: 101px; align-content: flex-start; }
+  .note { margin: 0; font-size: 13px; line-height: 1.3; color: var(--text-muted); }
+  .fields { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .card-title { text-wrap: balance; margin: 12px 0 8px; font-family: var(--font-display); font-weight: var(--fw-bold); font-size: 26px; line-height: var(--leading-tight); }
+  .card-text { margin: 0 0 14px; font-size: var(--text-main); color: var(--text-muted); }
+  .card-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="../../_ds_bundle.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel">
+    // Le nom exact de l'espace de noms est fixé par Claude Design au moment de la compilation : on le cherche.
+    const DS = window[Object.keys(window).find((k) => /DesignSystem_/.test(k))];
+    const { Button, Badge, Card, Input, Eyebrow } = DS;
+
+    function Panel({ theme, label }) {
+      return (
+        <div className={`panel ${theme}`.trim()} style={{ background: "var(--background)", color: "var(--text)" }}>
+          <p className="theme-name"><code>{label}</code>{theme ? <> · .{theme}</> : null}</p>
+          <Eyebrow>Publicité payante · Meta &amp; Google</Eyebrow>
+          <div className="row variants">
+            <Button>Commencer</Button>
+            <Button variant="secondary">Voir nos réalisations</Button>
+            {theme !== "theme-gradient"
+              ? <Button variant="gradient">Lancer votre projet</Button>
+              : <p className="note">Ici, le bouton en dégradé se confondrait avec le fond&nbsp;: on prend le bouton principal.</p>}
+          </div>
+          <div className="row">
+            <Button size="sm">Petit</Button>
+            <Button size="md">Moyen</Button>
+            <Button size="lg">Grand</Button>
+          </div>
+          <div className="row">
+            <Button state="hover">Survol</Button>
+            <Button variant="secondary" state="hover">Survol</Button>
+            <Button state="focus">Focus</Button>
+            <Button disabled>Désactivé</Button>
+          </div>
+          <div className="row">
+            <Badge>Vidéo</Badge>
+            <Badge tone="solid">Stratégie</Badge>
+            <Badge tone="outline">Événementiel</Badge>
+          </div>
+          <div className="fields">
+            <Input label="Nom" placeholder="Votre nom" />
+            <Input label="Entreprise" placeholder="Nom de votre entreprise" state="focus" />
+          </div>
+          <Card elevated>
+            <Eyebrow>Bloc A · Audit</Eyebrow>
+            <p className="card-title">Ce qui tourne, ce qui brûle du budget, ce qu’on répare en premier.</p>
+            <div className="card-foot">
+              <Badge tone="outline">0,5 à 1&nbsp;jour</Badge>
+              <span style={{ fontFamily: "var(--font-display)", fontWeight: "var(--fw-bold)", fontSize: 24 }}>Dès 300&nbsp;€</span>
+            </div>
+          </Card>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(
+      <>
+        <Panel theme="" label="Clair (défaut)" />
+        <Panel theme="theme-dark" label="Sombre" />
+        <Panel theme="theme-gradient" label="Dégradé deck" />
+      </>
+    );
+  </script>
+</body>
+</html>
